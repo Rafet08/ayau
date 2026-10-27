@@ -1,69 +1,76 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#8b3dff">
-<title>RAF GAME — Girls Party & Love Quiz</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+<meta name="theme-color" content="#090909">
+<title>RAF GAME</title>
 <style>
-:root{--bg:#100b20;--panel:#211536;--panel2:#2d1d46;--pink:#ff5db1;--purple:#9c6bff;--text:#fff8ff;--muted:#cbbbdc;--line:#ffffff20;--good:#6df0b2;--bad:#ff8195}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#48216a 0%,#1a102d 40%,#100b20 78%);color:var(--text);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100dvh}
-button,input,select{font:inherit}button{border:0;cursor:pointer;color:white;font-weight:750;border-radius:16px;padding:13px 16px;transition:transform .15s,opacity .15s}button:active{transform:scale(.97)}button:disabled{opacity:.45;cursor:not-allowed}
-.primary{background:linear-gradient(120deg,#ff4fa7,#9a5cff);box-shadow:0 8px 24px #a14dff30}.secondary{background:#ffffff12;border:1px solid var(--line)}.danger{background:#ff5474}.small{padding:8px 11px;border-radius:12px;font-size:.9rem}
-.wrap{width:min(100%,620px);margin:auto;padding:18px 16px calc(28px + env(safe-area-inset-bottom))}.top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:4px 0 20px}.logo{font-weight:1000;font-size:1.55rem;letter-spacing:1px}.logo span{color:#ff8ecb}.pill{border:1px solid #ffffff25;background:#ffffff10;border-radius:99px;padding:7px 11px;color:var(--muted);font-size:.82rem}
-.hero{text-align:center;padding:28px 18px 22px;border:1px solid #ffffff20;border-radius:28px;background:linear-gradient(145deg,#ffffff12,#ffffff05);box-shadow:0 20px 55px #0003;overflow:hidden;position:relative}
-.heart{font-size:3.3rem;filter:drop-shadow(0 8px 18px #ff5db155);animation:float 2.6s ease-in-out infinite}@keyframes float{50%{transform:translateY(-8px) rotate(5deg)}}h1{font-size:clamp(2rem,9vw,3rem);line-height:1.02;margin:10px 0}h1 em{font-style:normal;color:#ff8acb}p{color:var(--muted);line-height:1.5}.card{background:linear-gradient(145deg,#281a3d,#1c132e);border:1px solid var(--line);border-radius:22px;padding:18px;margin-top:14px;box-shadow:0 12px 35px #0002}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field{display:flex;flex-direction:column;gap:7px;margin:12px 0;color:var(--muted);font-size:.92rem}input,select{width:100%;border:1px solid #ffffff24;border-radius:14px;background:#120c20;color:white;padding:13px 14px;outline:none}input:focus,select:focus{border-color:#ce8bff}.row{display:flex;gap:9px;align-items:center}.row>*{min-width:0}.row input{flex:1}.full{width:100%;margin-top:8px}.hidden{display:none!important}.section-title{font-size:1.1rem;margin:2px 0 10px}.muted{color:var(--muted);font-size:.9rem}.notice{padding:12px 14px;border-radius:14px;background:#ffffff0d;border:1px solid var(--line);font-size:.9rem;color:var(--muted);line-height:1.45;margin-top:12px}.status{font-size:.84rem;color:#ffb9df;min-height:20px;margin-top:8px}.players{display:flex;flex-wrap:wrap;gap:8px}.player{background:#ffffff10;border:1px solid var(--line);border-radius:14px;padding:9px 11px;display:flex;align-items:center;gap:7px}.dot{width:8px;height:8px;background:var(--good);border-radius:50%}.mode{display:flex;gap:8px}.mode button{flex:1}.mode .selected{outline:2px solid #ff8acb;background:#a743a0}.question{font-size:clamp(1.3rem,5vw,1.8rem);font-weight:850;line-height:1.25;color:white;margin:12px 0 18px}.answer-list{display:grid;gap:9px}.answer-list button{text-align:left;background:#ffffff10;border:1px solid var(--line);line-height:1.35}.answer-list button.chosen{border-color:#ff80c4;background:#a33d8950}.answer-list button.correct{border-color:var(--good)}.answer-list button.wrong{border-color:var(--bad)}.scoreline{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}.scoreline:last-child{border-bottom:0}.score{color:#ff9ed1;font-weight:900}.tiny{font-size:.78rem;color:var(--muted)}footer{text-align:center;color:#9585a9;font-size:.78rem;margin:24px 0 5px}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);max-width:calc(100% - 30px);background:#322044;border:1px solid #ffffff30;padding:12px 16px;border-radius:14px;z-index:10;box-shadow:0 10px 30px #0007}
-@media(min-width:560px){.wrap{padding-top:28px}.hero{padding:35px}.card{padding:22px}} 
+:root{color-scheme:dark;--bg:#080808;--panel:#141414;--panel2:#1d1d1d;--line:#383838;--text:#f7f7f7;--muted:#a8a8a8;--white:#fff}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{background:var(--bg);min-height:100%;scroll-behavior:smooth}
+body{margin:0;background:linear-gradient(180deg,#101010,#070707 55%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;min-height:100dvh}
+button,input,select{font:inherit}button{min-height:50px;border-radius:15px;padding:13px 16px;font-weight:750;border:1px solid var(--line);color:var(--text);background:#202020;cursor:pointer;touch-action:manipulation}button:active{transform:scale(.985);background:#333}button:disabled{opacity:.38;cursor:not-allowed}
+.primary{background:#f5f5f5;color:#080808;border-color:#f5f5f5}.primary:active{background:#d8d8d8}.secondary{background:#171717}.danger{border-color:#666;background:#252525}
+.wrap{width:min(100%,600px);margin:auto;padding:calc(12px + env(safe-area-inset-top)) 15px calc(24px + env(safe-area-inset-bottom))}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:3px 1px 22px}.brand{font-size:1.35rem;font-weight:950;letter-spacing:2px}.brand span{font-weight:400;color:#a6a6a6}.badge{border:1px solid var(--line);border-radius:99px;padding:7px 10px;font-size:.76rem;color:#c8c8c8;white-space:nowrap}
+.hero{border:1px solid #333;border-radius:26px;padding:27px 20px;text-align:center;background:linear-gradient(145deg,#202020,#101010);box-shadow:0 16px 45px #0008}
+.symbol{font-size:2.4rem;letter-spacing:6px;color:#fff}h1{font-size:clamp(2.5rem,12vw,4.4rem);letter-spacing:-2px;line-height:.95;margin:15px 0 10px;font-weight:950}h1 span{display:block;color:#929292}p{color:var(--muted);line-height:1.5;margin:10px 0 0}.card{margin-top:13px;padding:18px;border:1px solid #2f2f2f;border-radius:22px;background:linear-gradient(150deg,#191919,#111);box-shadow:0 12px 32px #0004}
+h2{font-size:1.08rem;margin:0 0 13px;letter-spacing:.1px}.field{display:flex;flex-direction:column;gap:8px;margin:13px 0;color:#c5c5c5;font-size:.9rem}input,select{width:100%;min-height:50px;background:#080808;color:white;border:1px solid #3b3b3b;border-radius:14px;padding:13px 14px;outline:none}input:focus,select:focus{border-color:#aaa}.grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.full{width:100%;margin-top:9px}.hidden{display:none!important}.status{font-size:.84rem;line-height:1.45;color:#c5c5c5;min-height:18px;margin-top:10px}.hint{font-size:.82rem;color:#a4a4a4;line-height:1.5}.players{display:flex;flex-wrap:wrap;gap:8px}.player{display:flex;align-items:center;gap:8px;padding:10px 12px;border:1px solid #333;border-radius:13px;background:#1a1a1a;font-size:.9rem}.dot{width:7px;height:7px;border-radius:50%;background:#eee}.room-hero{text-align:left;padding:20px}.room-code{font-size:2.5rem;font-weight:950;letter-spacing:5px;margin:8px 0}.room-sub{color:#aaa;font-size:.88rem}.question-card{padding:23px 20px;min-height:270px;display:flex;flex-direction:column;justify-content:center;text-align:center;background:linear-gradient(145deg,#202020,#111)}.kicker{font-size:.72rem;letter-spacing:2px;color:#aaa;text-transform:uppercase}.question{font-size:clamp(1.55rem,6vw,2.2rem);font-weight:850;line-height:1.2;letter-spacing:-.6px;margin:20px 0}.turn{font-size:.9rem;color:#bbb}.turn strong{color:#fff}.question-note{font-size:.84rem;color:#a4a4a4;line-height:1.45}.row{display:flex;align-items:center;gap:9px}.row input{flex:1;min-width:0}.tiny{font-size:.75rem;color:#999}.chat-list{max-height:220px;overflow:auto;overscroll-behavior:contain;padding-right:3px}.message{padding:9px 0;border-bottom:1px solid #292929;overflow-wrap:anywhere}.message:last-child{border-bottom:0}.message b{font-size:.85rem}.message div{margin-top:3px;line-height:1.4}.scoreline{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid #2b2b2b}.scoreline:last-child{border:0}.score{font-weight:850}.pill-row{display:flex;gap:7px;flex-wrap:wrap}.pill{font-size:.78rem;color:#bbb;border:1px solid #3b3b3b;padding:7px 10px;border-radius:99px}.footer{text-align:center;color:#777;font-size:.75rem;padding:22px 8px 4px}.toast{position:fixed;z-index:10;left:50%;bottom:calc(18px + env(safe-area-inset-bottom));transform:translateX(-50%);width:max-content;max-width:calc(100% - 28px);padding:12px 16px;border:1px solid #555;border-radius:14px;background:#f4f4f4;color:#111;box-shadow:0 8px 30px #0009;font-size:.9rem}
+@media(min-width:520px){.wrap{padding-top:25px}.hero{padding:34px}.card{padding:22px}.question-card{min-height:300px}}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <header class="top"><div class="logo">RAF <span>GAME</span> 💗</div><div class="pill" id="connection">● не подключено</div></header>
+<header class="top"><div class="brand">RAF <span>GAME</span></div><div class="badge" id="connection">● OFFLINE</div></header>
 
-  <section id="home">
-    <div class="hero"><div class="heart">💖</div><h1>GIRLS PARTY<br><em>& LOVE QUIZ</em></h1><p>Секреты, смех и вопросы для вашей компании.<br>Собирай подруг — начинаем!</p></div>
-    <div class="card">
-      <h2 class="section-title">✨ Как тебя зовут?</h2>
-      <label class="field">Твоё имя<input id="name" maxlength="18" placeholder="Например, Rafet" autocomplete="nickname"></label>
-      <div class="grid"><button class="primary" id="createBtn">＋ Создать комнату</button><button class="secondary" id="joinToggle">Войти по коду</button></div>
-      <div id="joinArea" class="hidden"><label class="field">Код комнаты<input id="roomInput" maxlength="6" placeholder="ABC123" autocapitalize="characters"></label><button class="primary full" id="joinBtn">Войти в комнату 💕</button></div>
-      <div class="status" id="homeStatus"></div>
-    </div>
-    <div class="notice">🔒 Регистрация не нужна. Игра использует анонимное подключение Firebase. Не вводите настоящие пароли или личные секреты.</div>
-  </section>
+<section id="home">
+ <div class="hero"><div class="symbol">R / G</div><h1>RAF<span>GAME</span></h1><p>Вопросы, любовь, дружба и ваши истории.<br>Один вопрос — вся компания отвечает сама.</p></div>
+ <div class="card">
+  <h2>Начать игру</h2>
+  <label class="field">Твоё имя<input id="name" maxlength="18" placeholder="Введи имя" autocomplete="nickname"></label>
+  <label class="field">Язык вопросов в твоей комнате
+   <select id="language"><option value="ru">Русский 🇷🇺</option><option value="kk">Қазақша 🇰🇿</option></select>
+  </label>
+  <div class="grid"><button class="primary" id="createBtn">Создать комнату</button><button class="secondary" id="joinToggle">Войти по коду</button></div>
+  <div id="joinArea" class="hidden"><label class="field">Код комнаты<input id="roomInput" maxlength="6" placeholder="ABC123" autocapitalize="characters" autocomplete="off"></label><button class="primary full" id="joinBtn">Войти в игру</button></div>
+  <div class="status" id="homeStatus"></div>
+ </div>
+ <div class="card"><div class="hint">Как играть: создайте комнату, пригласите друзей по коду, прочитайте вопрос и отвечайте голосом в Discord или в чате игры. Никаких вариантов ответа — только ваши настоящие ответы.</div></div>
+</section>
 
-  <section id="lobby" class="hidden">
-    <div class="hero"><div class="heart">🎉</div><h1>Комната <em id="roomCode">------</em></h1><p>Отправь подругам код и дождись, пока они подключатся.</p><button class="secondary" id="copyBtn">📋 Скопировать код</button></div>
-    <div class="card"><h2 class="section-title">👯 Игроки <span id="playerCount" class="pill">0/10</span></h2><div id="players" class="players"></div>
-      <div class="field">Выберите режим<select id="gameMode"><option value="party">Правда или действие 🎲</option><option value="love">LOVE QUIZ 💘</option><option value="mix">Сюрприз-микс 🎁</option></select></div>
-      <button class="primary full" id="startBtn">Начать игру 🚀</button><button class="secondary full" id="leaveBtn">Выйти из комнаты</button><div class="status" id="lobbyStatus"></div>
-    </div>
-    <div class="notice">Нужно минимум 2 игрока, чтобы начать. Комнаты и ответы доступны участникам этой комнаты.</div>
-  </section>
+<section id="lobby" class="hidden">
+ <div class="hero room-hero"><div class="kicker">Твоя комната</div><div class="room-code" id="roomCode">------</div><div class="room-sub" id="languageLabel">Русский</div><button class="secondary full" id="copyBtn">Скопировать код приглашения</button></div>
+ <div class="card"><h2>Игроки <span class="badge" id="playerCount">1/10</span></h2><div id="players" class="players"></div>
+  <div class="hint" style="margin-top:14px">Когда все подключатся, ведущий нажмёт «Начать». Вопросы будут появляться по очереди у всех игроков.</div>
+  <button class="primary full" id="startBtn">Начать игру</button><button class="secondary full" id="leaveBtn">Выйти из комнаты</button><div class="status" id="lobbyStatus"></div>
+ </div>
+</section>
 
-  <section id="game" class="hidden">
-    <div class="top"><div><div class="pill">Комната <b id="gameRoomCode"></b></div></div><button class="secondary small" id="backLobbyBtn">Игроки</button></div>
-    <div class="card">
-      <div class="row" style="justify-content:space-between"><div class="pill" id="roundLabel">Раунд 1</div><div class="pill" id="turnLabel">Ход игрока</div></div>
-      <h2 id="gameTitle" class="section-title" style="margin-top:16px">Правда или действие</h2>
-      <div id="gamePrompt" class="question">Готовы играть? 💗</div>
-      <div id="partyChoices" class="mode"><button class="secondary" data-kind="truth">💬 Правда</button><button class="secondary" data-kind="dare">🔥 Действие</button></div>
-      <div id="quizChoices" class="answer-list hidden"></div>
-      <div id="gameFeedback" class="notice hidden"></div>
-      <button class="primary full" id="nextBtn">Следующий ход ➜</button>
-    </div>
-    <div class="card"><h2 class="section-title">🏆 Счёт</h2><div id="scores"></div></div>
-    <div class="card"><h2 class="section-title">💬 Чат комнаты</h2><div id="chatMessages" style="max-height:180px;overflow:auto"></div><div class="row" style="margin-top:12px"><input id="chatInput" maxlength="180" placeholder="Напиши что-нибудь…"><button class="primary" id="sendChat">➤</button></div></div>
-  </section>
-  <footer>RAF GAME · играйте бережно и уважайте границы друг друга 💗</footer>
+<section id="game" class="hidden">
+ <div class="top"><div class="badge">КОМНАТА <b id="gameRoomCode">------</b></div><button class="secondary" id="backLobbyBtn" style="min-height:40px;padding:8px 12px">Игроки</button></div>
+ <div class="pill-row" style="margin-bottom:10px"><span class="pill" id="roundLabel">ВОПРОС 1</span><span class="pill" id="langPill">РУССКИЙ</span></div>
+ <div class="card question-card">
+  <div class="kicker" id="categoryLabel">LOVE / FRIENDS</div>
+  <div class="question" id="gamePrompt">Готовы?</div>
+  <div class="turn" id="turnLabel">Отвечает: <strong>игрок</strong></div>
+  <p class="question-note" id="questionNote">Отвечайте голосом или в чате. Здесь нет правильных или неправильных ответов.</p>
+ </div>
+ <button class="primary full" id="nextBtn">Ответили — следующий вопрос →</button>
+ <button class="secondary full" id="skipBtn">Пропустить вопрос</button>
+ <div class="status" id="gameStatus"></div>
+ <div class="card"><h2>Участники</h2><div id="gamePlayers" class="players"></div></div>
+ <div class="card"><h2>Чат комнаты</h2><div class="chat-list" id="chatMessages"></div><div class="row" style="margin-top:12px"><input id="chatInput" maxlength="180" placeholder="Написать ответ или сообщение…"><button class="primary" id="sendChat" style="min-width:52px;padding:10px">↑</button></div></div>
+ <button class="secondary full" id="leaveGameBtn">Завершить / выйти</button>
+</section>
+<div class="footer">RAF GAME · уважайте границы друг друга. Любой вопрос можно пропустить.</div>
 </div>
 <div id="toast" class="toast hidden"></div>
+
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
-import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
-import { getDatabase, ref, set, get, update, onValue, off, remove, push, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-database.js";
-
-// 1. Вставь сюда конфигурацию своего Firebase-проекта из Firebase Console.
+import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+import { getDatabase, ref, set, get, update, onValue, off, remove, push } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-database.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyADS0-0umYKpsdusf9htqr885pywenXovk",
@@ -76,164 +83,211 @@ const firebaseConfig = {
   measurementId: "G-SXFT52M2Y9"
 };
 
-
 const $ = id => document.getElementById(id);
-const screens = ["home","lobby","game"];
-let app, auth, db, uid=null, roomId=null, playerName="", roomData=null, unsubRoom=null, unsubChat=null, currentKind=null, selectedAnswer=null;
-const truth = [
-"Какой поступок заставил тебя улыбаться весь день?","Кто из компании лучше всех хранит секреты?","Ты когда-нибудь скрывала симпатию к кому-то?","Какое первое впечатление ты производишь, а какая ты на самом деле?","Какой самый неловкий момент был у тебя на свидании?","Что для тебя важнее: внимание или красивые слова?","Кому из компании ты доверила бы важный секрет?","Какой комплимент ты запомнила надолго?","Какой у тебя самый смешной страх?","Что ты никогда не простишь в дружбе?","Какой твой идеальный вечер?","Ты когда-нибудь ревновала подругу?","Что может моментально поднять тебе настроение?","Какой самый спонтанный поступок ты совершала?","Есть ли песня, которая напоминает тебе о ком-то?","Какое качество первым привлекает тебя в человеке?","Что ты хотела бы попробовать, но пока стесняешься?","Какой самый смешной слух о себе ты слышала?","Кто из компании чаще всех заставляет тебя смеяться?","Что бы ты изменила в своём первом впечатлении о ком-то?"
-];
-const dares = [
-"Сделай комплимент каждому игроку.","Изобрази свою реакцию на сообщение от краша.","Спой 10 секунд любой песни.","Расскажи историю так, будто ты ведущая новостей.","Покажи самое смешное безопасное фото, если хочешь.","Придумай каждому игроку забавное прозвище на этот раунд.","Скажи фразу «я легенда» с максимально серьёзным лицом.","Сделай смешную позу на 5 секунд.","Придумай рекламный слоган для своей подруги.","Изобрази эмоцию, которую выберет компания.","Расскажи мини-историю, используя слова «кот», «любовь» и «пицца».","Покажи свой лучший танцевальный жест.","Скажи три вещи, которые тебе нравятся в себе.","Придумай название фильма про вашу компанию.","Произнеси скороговорку три раза."
-];
-const quiz = [
-{q:"Что для тебя важнее в отношениях?",a:["Доверие","Романтика","Юмор","Поддержка"]},
-{q:"Идеальное свидание — это…",a:["Прогулка ночью","Уютный вечер","Приключение","Вкусный ужин"]},
-{q:"Какой подарок радует больше?",a:["Что-то сделанное вручную","Любимый десерт","Неожиданный сюрприз","Время вместе"]},
-{q:"Что быстрее всего поднимает настроение?",a:["Музыка","Объятия","Мемы","Разговор с подругой"]},
-{q:"Что важнее в дружбе?",a:["Честность","Верность","Общие шутки","Поддержка"]},
-{q:"Как обычно показываешь симпатию?",a:["Заботой","Шутками","Комплиментами","Смущаюсь и молчу"]},
-{q:"Выбери идеальный выходной",a:["Дома с фильмом","Гулять с друзьями","Поехать куда-нибудь","Спать и вкусно есть"]},
-{q:"Что самое привлекательное в человеке?",a:["Доброта","Уверенность","Чувство юмора","Искренность"]},
-{q:"Какой ты персонаж в компании?",a:["Организатор","Весельчак","Советчик","Тихий наблюдатель"]},
-{q:"Какой вечер выберешь?",a:["Караоке","Настолки","Кино и снеки","Спонтанная прогулка"]}
-];
-const mixed = [
-{type:"party",text:"Правда или действие?",truth:true},
-{type:"party",text:"Назови одну вещь, за которую ты ценишь человека справа."},
-{type:"party",text:"Расскажи о своём самом смешном фейле."},
-{type:"party",text:"Кто из компании мог бы стать знаменитостью и почему?"},
-{type:"party",text:"Какой маленький жест для тебя очень романтичный?"},
-{type:"quiz",q:"Какой стиль отдыха тебе ближе?",a:["Тихий уют","Большая вечеринка","Путешествие","Активный день"]}
-];
-function showScreen(id){screens.forEach(s=>$(s).classList.toggle("hidden",s!==id));}
-function status(id,msg){$(id).textContent=msg||"";}
-function toast(msg){$("toast").textContent=msg;$("toast").classList.remove("hidden");setTimeout(()=>$("toast").classList.add("hidden"),2400);}
-function cleanName(s){return (s||"").trim().replace(/[<>]/g,"").slice(0,18);}
-function validConfig(){return firebaseConfig.apiKey!=="ВСТАВЬ_API_KEY" && firebaseConfig.projectId!=="ВСТАВЬ_PROJECT_ID";}
-async function initFirebase(){
- if(!validConfig()){ $("connection").textContent="● нужна настройка"; status("homeStatus","Сначала подключи Firebase — инструкция в README.txt."); return false; }
- try{app=initializeApp(firebaseConfig);auth=getAuth(app);db=getDatabase(app);await signInAnonymously(auth);uid=auth.currentUser?.uid; $("connection").textContent="● онлайн";return !!uid;}
- catch(e){console.error(e);$("connection").textContent="● ошибка";status("homeStatus","Не удалось подключиться. Проверь Firebase Config и включи Anonymous Authentication.");return false;}
-}
+const screens=["home","lobby","game"];
+let app,auth,db,uid=null,roomId=null,playerName="",roomData=null,roomLanguage="ru",roomUnsubscribe=null,chatUnsubscribe=null;
+const questions = {
+ru:[
+["Знакомство","Какое у тебя было первое впечатление о каждом из участников — и изменилось ли оно?"],
+["Кто из нас","Кто из участников скорее всего влюбится первым? Почему?"],
+["Любовь","Что для тебя важнее в отношениях: доверие, внимание или чувство юмора? Расскажи почему."],
+["Кто из нас","Кто из этой компании лучше всех умеет хранить секреты?"],
+["Симпатия","Какой маленький поступок может заставить тебя влюбиться сильнее?"],
+["Кто из нас","Кто скорее всего напишет бывшему в два часа ночи?"],
+["Дружба","Что ты ценишь в дружбе больше всего, но редко говоришь об этом вслух?"],
+["Романтика","Опиши идеальное свидание без ограничения бюджета."],
+["Кто из нас","Кто из участников мог бы стать популярным блогером? О чём был бы его блог?"],
+["Честно","Что люди часто неправильно понимают в тебе?"],
+["Кто из нас","Кто скорее всего случайно раскроет чужой секрет?"],
+["Любовь","Ты больше веришь в любовь с первого взгляда или в чувства, которые растут со временем?"],
+["Кто из нас","Кто дольше всех собирается перед выходом?"],
+["Воспоминание","Какой момент с друзьями ты хотела бы пережить ещё раз?"],
+["Симпатия","Какие три качества сразу привлекают тебя в человеке?"],
+["Кто из нас","Кто скорее всего тайно в кого-то влюблён прямо сейчас? Можно не называть имя."],
+["Дружба","Что для тебя было бы серьёзным поводом прекратить дружбу?"],
+["Кто из нас","Кто из участников лучше всех умеет успокаивать других?"],
+["Секрет","Какой безобидный секрет о тебе удивил бы остальных?"],
+["Отношения","Что для тебя хуже: холодные ответы или слишком сильная ревность? Почему?"],
+["Кто из нас","Кто скорее всего уедет жить в другую страну?"],
+["Мечта","Какое свидание или путешествие ты мечтаешь однажды устроить?"],
+["Кто из нас","Кто первым засмеётся в самый неподходящий момент?"],
+["Честно","Какой комплимент ты помнишь до сих пор?"],
+["Любовь","Как ты обычно показываешь человеку, что он тебе нравится?"],
+["Кто из нас","Кто скорее всего станет самым богатым — и почему?"],
+["Дружба","Как понять, что человеку действительно можно доверять?"],
+["Кто из нас","Кому из участников ты бы доверила выбрать тебе образ на целый день?"],
+["Романтика","Какой самый милый поступок для тебя может сделать человек?"],
+["Кто из нас","Кто скорее всего начнёт танцевать первым на вечеринке?"],
+["История","Расскажи о самом неловком, но теперь смешном моменте в своей жизни."],
+["Кто из нас","Кто из компании мог бы сняться в романтическом сериале? Какую роль играл бы?"],
+["Отношения","Что важнее: чтобы партнёр был похож на тебя или дополнял тебя?"],
+["Кто из нас","Кто быстрее всех ответит на сообщение, а кто пропадёт на весь день?"],
+["Выбор","Если бы можно было прямо сейчас телепортироваться в любое место с одним участником, кого и куда бы выбрала?"],
+["Кто из нас","Кто скорее всего устроит спонтанное приключение посреди ночи?"],
+["Любовь","Какой поступок для тебя романтичнее дорогого подарка?"],
+["Честно","Какую привычку ты хотела бы изменить в себе?"],
+["Кто из нас","Кто мог бы лучше всех организовать общий отпуск?"],
+["Дружба","За что ты благодарна человеку слева от себя или следующему игроку?"],
+["Финал","Опиши каждого участника одним добрым словом."]
+],
+kk:[
+["Танысу","Әр қатысушы туралы алғашқы ойың қандай болды? Ол ойың өзгерді ме?"],
+["Кіміміз","Біздің арамызда кім бірінші ғашық болуы мүмкін? Неге?"],
+["Махаббат","Қарым-қатынаста саған не маңыздырақ: сенім, көңіл бөлу әлде әзіл? Неге?"],
+["Кіміміз","Осы топта кім сырды ең жақсы сақтайды?"],
+["Сезім","Қандай кішкентай әрекет саған адамды одан сайын ұнатуға себеп болады?"],
+["Кіміміз","Түнгі екіде бұрынғы сүйіктісіне кім жазуы мүмкін?"],
+["Достық","Достықта ең қатты бағалайтын, бірақ сирек айтатын нәрсең қандай?"],
+["Романтика","Ақша шектеуі болмаса, мінсіз кездесуді сипатта."],
+["Кіміміз","Осы топтан кім танымал блогер бола алады? Блогы не туралы болар еді?"],
+["Шындық","Адамдар сен туралы нені жиі қате түсінеді?"],
+["Кіміміз","Біреудің құпиясын байқамай кім айтып қоюы мүмкін?"],
+["Махаббат","Бір көргеннен ғашық болуға сенесің бе, әлде сезім уақыт өте қалыптасады ма?"],
+["Кіміміз","Сыртқа шығарда ең ұзақ жиналатын кім?"],
+["Естелік","Достарыңмен болған қай сәтті қайта өткізгің келеді?"],
+["Сезім","Адамның бойындағы сені бірден тартатын үш қасиет қандай?"],
+["Кіміміз","Қазір біреуді жасырын ұнатып жүрген кім болуы мүмкін? Есімін айтпасаң да болады."],
+["Достық","Достықты тоқтатуға қандай жағдай себеп болар еді?"],
+["Кіміміз","Басқаларды жұбатуды кім жақсы біледі?"],
+["Құпия","Өзің туралы қандай зиянсыз құпия басқаларды таңғалдырар еді?"],
+["Қарым-қатынас","Саған қайсысы қиынырақ: суық жауаптар ма, әлде қатты қызғаныш па? Неге?"],
+["Кіміміз","Басқа елге тұруға кім көшіп кетуі мүмкін?"],
+["Арман","Бір күні жасағың келетін кездесу немесе саяхатты сипатта."],
+["Кіміміз","Ең ыңғайсыз сәтте бірінші болып кім күліп жібереді?"],
+["Шындық","Қазірге дейін есіңде қалған комплимент қандай?"],
+["Махаббат","Біреуді ұнататыныңды әдетте қалай білдіресің?"],
+["Кіміміз","Болашақта ең бай болатын кім деп ойлайсың? Неге?"],
+["Достық","Адамға шынымен сенуге болатынын қалай түсінуге болады?"],
+["Кіміміз","Бір күнге киім үлгіңді таңдауды топтағы кімге сеніп тапсырар едің?"],
+["Романтика","Сен үшін ең сүйкімді әрекет қандай?"],
+["Кіміміз","Кеште бірінші болып билей бастайтын кім?"],
+["Оқиға","Өміріңдегі қазір күлкілі болып көрінетін ең ыңғайсыз оқиғаны айтып бер."],
+["Кіміміз","Біздің топтан романтикалық сериалда кім ойнай алар еді? Қандай рөлде?"],
+["Қарым-қатынас","Серігіңнің саған ұқсас болғаны маңызды ма, әлде сені толықтырғаны ма?"],
+["Кіміміз","Хабарламаға ең тез кім жауап береді, ал кім бір күнге жоғалып кетеді?"],
+["Таңдау","Қазір кез келген жерге бір қатысушымен бірге бара алсаң, кімді және қай жерді таңдар едің?"],
+["Кіміміз","Түн ортасында аяқ астынан қызық оқиға ұйымдастыратын кім?"],
+["Махаббат","Қымбат сыйлықтан да романтикалық қандай әрекет бар?"],
+["Шындық","Өзіңдегі қандай әдетті өзгерткің келеді?"],
+["Кіміміз","Ортақ демалысты ең жақсы ұйымдастыратын кім?"],
+["Достық","Жаныңдағы немесе келесі ойыншыға не үшін ризасың?"],
+["Қорытынды","Әр қатысушыны бір жақсы сөзбен сипатта."]
+]
+};
+function showScreen(id){screens.forEach(s=>$(s).classList.toggle("hidden",s!==id));window.scrollTo({top:0,behavior:"smooth"});}
+function setStatus(id,msg){$(id).textContent=msg||"";}
+function toast(msg){$("toast").textContent=msg;$("toast").classList.remove("hidden");setTimeout(()=>$("toast").classList.add("hidden"),2300);}
+function safeName(s){return String(s||"").trim().replace(/[<>]/g,"").slice(0,18);}
+function escapeHtml(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
 function roomRef(){return ref(db,`rooms/${roomId}`);}
 function playerRef(id=uid){return ref(db,`rooms/${roomId}/players/${id}`);}
-function code(){return Math.random().toString(36).slice(2,8).toUpperCase();}
-async function createRoom(){
- playerName=cleanName($("name").value);if(!playerName)return status("homeStatus","Введи своё имя.");
- if(!await initFirebase())return;
- status("homeStatus","Создаём комнату…");
+function randomCode(){return Math.random().toString(36).slice(2,8).toUpperCase();}
+function qFor(lang,used=[]){
+ const list=questions[lang]||questions.ru;let available=list.map((_,i)=>i).filter(i=>!used.includes(i));if(!available.length)available=list.map((_,i)=>i);
+ const q=list[available[Math.floor(Math.random()*available.length)]];
+ return {category:q[0],prompt:q[1],questionIndex:list.indexOf(q)};
+}
+async function initFirebase(){
  try{
-  let id=code();for(let i=0;i<4&&(await get(ref(db,`rooms/${id}`))).exists();i++)id=code();
+  if(!app){app=initializeApp(firebaseConfig);auth=getAuth(app);db=getDatabase(app);}
+  if(!auth.currentUser)await signInAnonymously(auth);
+  uid=auth.currentUser.uid;$("connection").textContent="● ONLINE";return true;
+ }catch(e){console.error(e);$("connection").textContent="● ERROR";setStatus("homeStatus","Firebase қосылмады / Не удалось подключиться к Firebase. Проверь Authentication и настройки базы.");return false;}
+}
+async function createRoom(){
+ playerName=safeName($("name").value);roomLanguage=$("language").value;
+ if(!playerName)return setStatus("homeStatus","Сначала введи имя.");
+ if(!await initFirebase())return;
+ setStatus("homeStatus","Создаём комнату…");
+ try{
+  let id=randomCode();for(let n=0;n<5&&(await get(ref(db,`rooms/${id}`))).exists();n++)id=randomCode();
   roomId=id;const now=Date.now();
-  await set(roomRef(),{createdAt:now,host:uid,status:"lobby",mode:"party",round:0,currentPlayer:uid,players:{[uid]:{name:playerName,score:0,joinedAt:now}},game:{type:"party",prompt:"Выбери «Правда» или «Действие» 💗",round:0,answered:false}});
-  listenRoom();showScreen("lobby");renderRoom();status("lobbyStatus","Комната создана! Отправь код подругам.");
- }catch(e){console.error(e);status("homeStatus","Не получилось создать комнату. Проверь правила Realtime Database.");}
+  const q=qFor(roomLanguage);
+  await set(roomRef(),{createdAt:now,host:uid,status:"lobby",language:roomLanguage,round:0,currentPlayer:uid,usedQuestions:[],players:{[uid]:{name:playerName,score:0,joinedAt:now}},game:{category:q.category,prompt:q.prompt,questionIndex:q.questionIndex}});
+  listenRoom();showScreen("lobby");renderRoom();setStatus("lobbyStatus","Комната готова. Отправь код друзьям.");
+ }catch(e){console.error(e);setStatus("homeStatus","Не удалось создать комнату. Проверь правила Realtime Database.");}
 }
 async function joinRoom(){
- playerName=cleanName($("name").value);const id=$("roomInput").value.trim().toUpperCase();
- if(!playerName)return status("homeStatus","Сначала введи своё имя.");
- if(!/^[A-Z0-9]{6}$/.test(id))return status("homeStatus","Код должен состоять из 6 символов.");
+ playerName=safeName($("name").value);const id=$("roomInput").value.trim().toUpperCase();
+ if(!playerName)return setStatus("homeStatus","Сначала введи имя.");
+ if(!/^[A-Z0-9]{6}$/.test(id))return setStatus("homeStatus","Код комнаты должен содержать 6 символов.");
  if(!await initFirebase())return;
  try{
-  const snap=await get(ref(db,`rooms/${id}`));if(!snap.exists())return status("homeStatus","Комната не найдена. Проверь код.");
-  const data=snap.val();if(data.status==="finished")return status("homeStatus","Эта игра уже завершена.");
-  if(Object.keys(data.players||{}).length>=10 && !data.players[uid])return status("homeStatus","В комнате уже 10 игроков.");
-  roomId=id;await set(playerRef(),{name:playerName,score:0,joinedAt:Date.now()});
+  const snap=await get(ref(db,`rooms/${id}`));if(!snap.exists())return setStatus("homeStatus","Комната не найдена. Проверь код.");
+  const data=snap.val();if(data.status==="finished")return setStatus("homeStatus","Эта игра уже закончена.");
+  const count=Object.keys(data.players||{}).length;if(count>=10&&!data.players?.[uid])return setStatus("homeStatus","В комнате уже 10 игроков.");
+  roomId=id;roomLanguage=data.language||"ru";
+  if(!data.players?.[uid])await set(playerRef(),{name:playerName,score:0,joinedAt:Date.now()});
+  else await update(playerRef(),{name:playerName});
   listenRoom();showScreen(data.status==="playing"?"game":"lobby");renderRoom();
- }catch(e){console.error(e);status("homeStatus","Не удалось войти. Проверь настройки Firebase.");}
+ }catch(e){console.error(e);setStatus("homeStatus","Не удалось войти. Проверь правила Firebase.");}
 }
 function listenRoom(){
- if(unsubRoom)off(roomRef());
- unsubRoom=onValue(roomRef(),snap=>{
-  if(!snap.exists()){toast("Комната закрыта.");leaveLocal();return;}
-  roomData=snap.val();renderRoom();
-  if(roomData.status==="playing")showScreen("game");else if(roomData.status==="lobby")showScreen("lobby");
+ if(roomId){if(roomUnsubscribe)roomUnsubscribe();if(chatUnsubscribe)chatUnsubscribe();}
+ roomUnsubscribe=onValue(roomRef(),snap=>{
+  if(!snap.exists()){toast("Комната закрыта");cleanupLocal();return;}
+  roomData=snap.val();roomLanguage=roomData.language||"ru";renderRoom();
+  if(roomData.status==="playing")showScreen("game");else showScreen("lobby");
  });
- const cr=ref(db,`rooms/${roomId}/chat`);
- if(unsubChat)off(cr);
- unsubChat=onValue(cr,s=>renderChat(s.val()||{}));
+ chatUnsubscribe=onValue(ref(db,`rooms/${roomId}/chat`),snap=>renderChat(snap.val()||{}));
 }
 function renderRoom(){
  if(!roomData)return;
- $("roomCode").textContent=roomId||"------";$("gameRoomCode").textContent=roomId||"";
+ $("roomCode").textContent=roomId;$("gameRoomCode").textContent=roomId;
+ $("languageLabel").textContent=roomLanguage==="kk"?"Қазақша сұрақтар":"Вопросы на русском";
+ $("langPill").textContent=roomLanguage==="kk"?"ҚАЗАҚША":"РУССКИЙ";
  const ps=Object.entries(roomData.players||{}).sort((a,b)=>(a[1].joinedAt||0)-(b[1].joinedAt||0));
  $("playerCount").textContent=`${ps.length}/10`;
- $("players").innerHTML=ps.map(([id,p])=>`<div class="player"><span class="dot"></span>${escapeHtml(p.name||"Игрок")}${id===roomData.host?" 👑":""}</div>`).join("");
- $("startBtn").disabled=uid!==roomData.host||ps.length<2;
- if(uid!==roomData.host)$("lobbyStatus").textContent="Ждём, пока ведущий начнёт игру…";
- renderGame();renderScores();
+ $("players").innerHTML=ps.map(([id,p])=>`<div class="player"><span class="dot"></span>${escapeHtml(p.name||"Игрок")}${id===roomData.host?" · Ведущий":""}</div>`).join("");
+ $("gamePlayers").innerHTML=$("players").innerHTML;
+ $("startBtn").disabled=uid!==roomData.host||ps.length<2||roomData.status==="playing";
+ if(uid!==roomData.host)setStatus("lobbyStatus","Ожидаем ведущего. Можно отправить код ещё одной подруге.");
+ renderGame();
 }
-function escapeHtml(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
 async function startGame(){
  if(!roomData||uid!==roomData.host)return;
- if(Object.keys(roomData.players||{}).length<2)return status("lobbyStatus","Нужно минимум 2 игрока.");
- await update(roomRef(),{status:"playing",mode:$("gameMode").value,round:1,currentPlayer:uid,"game/type":"party","game/prompt":"Выбери «Правда» или «Действие» 💗","game/round":1,"game/answered":false,"game/createdAt":Date.now()});
+ if(Object.keys(roomData.players||{}).length<2)return setStatus("lobbyStatus","Нужно минимум 2 игрока.");
+ const q=qFor(roomLanguage);
+ await update(roomRef(),{status:"playing",round:1,currentPlayer:uid,usedQuestions:[q.questionIndex],"game/category":q.category,"game/prompt":q.prompt,"game/questionIndex":q.questionIndex});
 }
 function renderGame(){
- if(!roomData||!roomData.game)return;
- const g=roomData.game,ps=Object.entries(roomData.players||{}),turn=(roomData.currentPlayer&&roomData.players?.[roomData.currentPlayer])?.name||"Игрок";
- $("roundLabel").textContent=`Раунд ${roomData.round||1}`;$("turnLabel").textContent=`Ход: ${turn}`;
- $("gameTitle").textContent=g.type==="quiz"?"LOVE QUIZ 💘":g.type==="party"?"Правда или действие 🎲":"Сюрприз 🎁";
- $("gamePrompt").textContent=g.prompt||"Следующий вопрос…";
- $("partyChoices").classList.toggle("hidden",g.type!=="party");$("quizChoices").classList.toggle("hidden",g.type!=="quiz");
- $("quizChoices").innerHTML="";
- if(g.type==="quiz"&&g.options){g.options.forEach((a,i)=>{const b=document.createElement("button");b.textContent=`${["💗","✨","🌸","💜"][i%4]} ${a}`;b.className="";if(g.answers?.[uid]===i)b.classList.add("chosen");if(g.revealed&&i===g.correct)b.classList.add("correct");b.disabled=!!g.revealed||!!g.answers?.[uid];b.onclick=()=>answerQuiz(i);$("quizChoices").appendChild(b);});}
- $("gameFeedback").classList.toggle("hidden",!g.revealed);if(g.revealed)$("gameFeedback").textContent=g.type==="quiz"?`Ответ ведущего: ${g.options?.[g.correct]||"—"}. Совпавшие ответы получают очко!`:"Раунд завершён — передайте ход следующему игроку.";
+ if(!roomData?.game)return;
+ const g=roomData.game,players=roomData.players||{},turn=players[roomData.currentPlayer]?.name||"Игрок";
+ $("roundLabel").textContent=`ВОПРОС ${roomData.round||1}`;
+ $("categoryLabel").textContent=g.category||"RAF GAME";
+ $("gamePrompt").textContent=g.prompt||"Следующий вопрос скоро появится…";
+ $("turnLabel").innerHTML=`Отвечает: <strong>${escapeHtml(turn)}</strong>`;
+ $("questionNote").textContent=roomLanguage==="kk"?"Дауыспен Discord-та немесе ойын чатында жауап беріңдер. Дұрыс не бұрыс жауап жоқ.":"Отвечайте голосом в Discord или в чате игры. Здесь нет правильных или неправильных ответов.";
  $("nextBtn").disabled=uid!==roomData.host;
- document.querySelectorAll("[data-kind]").forEach(b=>b.classList.toggle("selected",b.dataset.kind===g.kind));
+ $("skipBtn").disabled=uid!==roomData.host;
 }
-async function chooseKind(kind){
- if(!roomData||uid!==roomData.currentPlayer)return toast("Сейчас ход другого игрока.");
- const item=(kind==="truth"?truth:dares)[Math.floor(Math.random()*(kind==="truth"?truth:dares).length)];
- await update(ref(db,`rooms/${roomId}/game`),{type:"party",kind,prompt:item,answered:false,revealed:true,options:null,answers:null});
-}
-async function nextTurn(){
+async function nextQuestion(){
  if(!roomData||uid!==roomData.host)return;
  const ids=Object.keys(roomData.players||{}).sort((a,b)=>(roomData.players[a].joinedAt||0)-(roomData.players[b].joinedAt||0));
  if(!ids.length)return;
- const idx=Math.max(0,ids.indexOf(roomData.currentPlayer)),next=ids[(idx+1)%ids.length],round=(roomData.round||1)+1;
- let mode=roomData.mode||"party",type="party",prompt="Выбери «Правда» или «Действие» 💗",opts=null,correct=null;
- if(mode==="love"||(mode==="mix"&&Math.random()>.45)){type="quiz";const q=quiz[Math.floor(Math.random()*quiz.length)];prompt=q.q;opts=q.a;correct=Math.floor(Math.random()*q.a.length);}
- else if(mode==="mix"&&Math.random()>.5){prompt=mixed[Math.floor(Math.random()*mixed.length)].text;}
- await update(roomRef(),{currentPlayer:next,round,"game/type":type,"game/prompt":prompt,"game/options":opts,"game/correct":correct,"game/answers":null,"game/revealed":false,"game/kind":null,"game/round":round,"game/answered":false});
-}
-async function answerQuiz(i){
- if(!roomData||uid!==roomData.currentPlayer)return toast("Сейчас ход другого игрока.");
- const g=roomData.game;if(g.answers?.[uid]!==undefined)return;
- await update(ref(db,`rooms/${roomId}/game/answers`),{[uid]:i});
- const updated=await get(ref(db,`rooms/${roomId}/game/answers`));const answers=updated.val()||{};
- if(Object.keys(answers).length>=Object.keys(roomData.players||{}).length){
-  const changes={"game/revealed":true};const correct=g.correct;
-  for(const [id,ans] of Object.entries(answers)){if(ans===correct)changes[`players/${id}/score`]=(roomData.players[id]?.score||0)+1;}
-  await update(roomRef(),changes);
- }
-}
-function renderScores(){
- if(!roomData)return;
- const ps=Object.entries(roomData.players||{}).sort((a,b)=>(b[1].score||0)-(a[1].score||0));
- $("scores").innerHTML=ps.map(([id,p,i])=>`<div class="scoreline"><span>${id===roomData.host?"👑 ":""}${escapeHtml(p.name||"Игрок")}</span><span class="score">${p.score||0} очк.</span></div>`).join("");
-}
-function renderChat(data){
- const entries=Object.entries(data).sort((a,b)=>(a[1].at||0)-(b[1].at||0)).slice(-40);
- $("chatMessages").innerHTML=entries.map(([id,m])=>`<div style="margin:7px 0"><b>${escapeHtml(m.name||"Игрок")}</b> <span class="tiny">${m.at?new Date(m.at).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}):""}</span><div>${escapeHtml(m.text||"")}</div></div>`).join("");
- $("chatMessages").scrollTop=$("chatMessages").scrollHeight;
+ const idx=ids.indexOf(roomData.currentPlayer),next=ids[(idx+1+ids.length)%ids.length],used=roomData.usedQuestions||[],q=qFor(roomLanguage,used),round=(roomData.round||0)+1;
+ const updates={currentPlayer:next,round,usedQuestions:[...used,q.questionIndex],"game/category":q.category,"game/prompt":q.prompt,"game/questionIndex":q.questionIndex};
+ await update(roomRef(),updates);setStatus("gameStatus","");
 }
 async function sendChat(){
- const textMsg=$("chatInput").value.trim();if(!textMsg||!roomId)return;
+ const msg=$("chatInput").value.trim();if(!msg||!roomId)return;
  $("chatInput").value="";
- try{await push(ref(db,`rooms/${roomId}/chat`),{name:playerName,text:textMsg.slice(0,180),at:Date.now()});}
+ try{await push(ref(db,`rooms/${roomId}/chat`),{name:playerName,text:msg.slice(0,180),at:Date.now()});}
  catch(e){toast("Не удалось отправить сообщение.");}
 }
-async function leaveLocal(){
- if(unsubRoom&&roomId)off(roomRef());if(unsubChat&&roomId)off(ref(db,`rooms/${roomId}/chat`));
+function renderChat(data){
+ const entries=Object.entries(data).sort((a,b)=>(a[1].at||0)-(b[1].at||0)).slice(-60);
+ $("chatMessages").innerHTML=entries.map(([id,m])=>`<div class="message"><b>${escapeHtml(m.name||"Игрок")}</b><span class="tiny"> · ${m.at?new Date(m.at).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}):""}</span><div>${escapeHtml(m.text||"")}</div></div>`).join("");
+ $("chatMessages").scrollTop=$("chatMessages").scrollHeight;
+}
+async function cleanupLocal(){
+ if(roomUnsubscribe){roomUnsubscribe();roomUnsubscribe=null;}if(chatUnsubscribe){chatUnsubscribe();chatUnsubscribe=null;}
  roomId=null;roomData=null;showScreen("home");
 }
 async function leaveRoom(){
  if(!roomId)return;
  try{
-  const wasHost=roomData?.host===uid;
-  await remove(playerRef());
+  const wasHost=roomData?.host===uid;await remove(playerRef());
   const snap=await get(roomRef());
   if(snap.exists()){
    const data=snap.val(),ids=Object.keys(data.players||{});
@@ -241,16 +295,16 @@ async function leaveRoom(){
    else if(wasHost)await update(roomRef(),{host:ids[0],currentPlayer:ids[0]});
   }
  }catch(e){console.warn(e);}
- await leaveLocal();
+ await cleanupLocal();
 }
 $("joinToggle").onclick=()=>$("joinArea").classList.toggle("hidden");
 $("createBtn").onclick=createRoom;$("joinBtn").onclick=joinRoom;
 $("roomInput").addEventListener("input",e=>e.target.value=e.target.value.toUpperCase().replace(/[^A-Z0-9]/g,"").slice(0,6));
-$("startBtn").onclick=startGame;$("leaveBtn").onclick=leaveRoom;$("backLobbyBtn").onclick=()=>showScreen("lobby");
+$("startBtn").onclick=startGame;$("leaveBtn").onclick=leaveRoom;$("leaveGameBtn").onclick=leaveRoom;
+$("backLobbyBtn").onclick=()=>showScreen("lobby");
 $("copyBtn").onclick=async()=>{try{await navigator.clipboard.writeText(roomId);toast("Код скопирован: "+roomId);}catch{toast("Код комнаты: "+roomId);}};
-document.querySelectorAll("[data-kind]").forEach(b=>b.onclick=()=>chooseKind(b.dataset.kind));
-$("nextBtn").onclick=nextTurn;$("sendChat").onclick=sendChat;$("chatInput").addEventListener("keydown",e=>{if(e.key==="Enter")sendChat();});
-window.addEventListener("beforeunload",()=>{if(roomId&&uid)remove(playerRef()).catch(()=>{});});
+$("nextBtn").onclick=nextQuestion;$("skipBtn").onclick=nextQuestion;$("sendChat").onclick=sendChat;
+$("chatInput").addEventListener("keydown",e=>{if(e.key==="Enter")sendChat();});
 </script>
 </body>
 </html>
