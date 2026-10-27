@@ -1,143 +1,256 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#201525">
-<title>Аяудың әлемі — түрік сериалдары</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#8b3dff">
+<title>RAF GAME — Girls Party & Love Quiz</title>
 <style>
-:root{--bg:#17121b;--panel:#241b2a;--pink:#f28bb5;--text:#fff8fc;--muted:#cbbdc9}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% 0%,#512a49,transparent 38%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,sans-serif}a{color:inherit;text-decoration:none}button,input{font:inherit}
-header{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:14px max(5%,calc((100% - 1180px)/2));background:#17121be8;backdrop-filter:blur(14px);border-bottom:1px solid #ffffff15;gap:14px}.brand{font:700 26px Georgia,serif;color:#ffd5e5;white-space:nowrap}.brand span{color:var(--pink)}nav{display:flex;align-items:center;gap:18px;font-size:14px;color:#eadde9}
-.socials{display:flex;gap:8px;align-items:center}.social-link{display:inline-flex;align-items:center;gap:6px;padding:8px 10px;border:1px solid #ffffff25;border-radius:99px;background:#ffffff0b;font-size:12px;font-weight:700}.social-link:hover{background:#ff9fc4;color:#291523}.social-link svg{width:18px;height:18px;fill:currentColor}
-.social-feature{padding:20px;display:flex;flex-direction:column;justify-content:space-between}.social-feature-top{display:flex;gap:14px;align-items:center}.social-feature h3{margin:0 0 7px}.social-feature p{margin:0 0 15px;line-height:1.5}.social-big{flex:0 0 60px;width:60px;height:60px;border-radius:18px;display:grid;place-items:center;font-size:38px;font-weight:900;background:linear-gradient(135deg,#25f4ee,#fe2c55);color:#15111a}.profile-btn{align-self:flex-start;margin-top:18px}
-@media(max-width:600px){.social-link{padding:8px;font-size:0;gap:0}.social-link svg{width:20px;height:20px}}
-select{background:#302335;color:white;border:1px solid #ffffff25;border-radius:10px;padding:9px}
-.hero{max-width:1180px;margin:auto;padding:48px 22px 32px;display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}.tag{color:#ffacd0;text-transform:uppercase;letter-spacing:2px;font-size:11px;font-weight:800}.hero h1{font:normal clamp(40px,6vw,68px)/1.03 Georgia,serif;margin:13px 0}.hero h1 em{color:#ff9ec5}.hero p{color:#ddcedc;line-height:1.65;max-width:520px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.btn{display:inline-flex;justify-content:center;align-items:center;border:1px solid #ffffff25;border-radius:999px;padding:11px 16px;font-weight:700;font-size:13px;cursor:pointer;transition:.2s}.btn:hover{transform:translateY(-2px)}.primary{background:linear-gradient(120deg,#ff9fc4,#dc77ba);color:#281724;border:0}.secondary{background:#ffffff0b}.hero-poster{height:315px;border-radius:25px;overflow:hidden;position:relative;box-shadow:0 20px 70px #0005;border:1px solid #ffffff20}.hero-poster img{width:100%;height:100%;object-fit:cover;object-position:center 25%}.hero-poster:after{content:"Taşacak Bu Deniz ♡";position:absolute;bottom:0;left:0;right:0;padding:36px 20px 18px;background:linear-gradient(transparent,#140d1ae8);font:30px Georgia,serif}
-main section{max-width:1180px;margin:auto;padding:25px 22px}.heading h2{font:34px Georgia,serif;margin:0 0 7px}.heading p{margin:0;color:var(--muted);font-size:14px}.toolbar{display:flex;gap:9px;flex-wrap:wrap;margin:20px 0}.toolbar input{flex:1;min-width:190px;background:#ffffff0c;color:white;border:1px solid #ffffff20;border-radius:12px;padding:12px 14px;outline:none}.filters{display:flex;gap:8px;flex-wrap:wrap}.filter{background:#ffffff09;border:1px solid #ffffff20;color:#f5e8f2;border-radius:99px;padding:8px 13px;font-size:12px;cursor:pointer}.filter.active{background:var(--pink);color:#2b1624;border-color:var(--pink)}
-.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.card{overflow:hidden;border-radius:17px;background:linear-gradient(160deg,#2b2031,#201722);border:1px solid #ffffff12;transition:.22s}.card:hover{transform:translateY(-4px);border-color:#ff9ec54d}.poster{height:260px;position:relative;background:linear-gradient(135deg,var(--a),var(--b));overflow:hidden}.poster img{width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block;transition:.3s}.card:hover .poster img{transform:scale(1.035)}.poster:after{content:"";position:absolute;inset:35% 0 0;background:linear-gradient(transparent,#120d18dd);pointer-events:none}.title-overlay{position:absolute;bottom:13px;left:13px;right:12px;z-index:1;font: bold 22px/1.08 Georgia,serif;text-shadow:0 2px 8px #000}.fav{position:absolute;right:10px;top:10px;z-index:2;border:0;border-radius:50%;width:36px;height:36px;background:#211421bd;color:white;font-size:20px;cursor:pointer}.fav.saved{background:#ff8dbb;color:#351527}.info{padding:12px}.meta{font-size:11px;color:#cdbdce;display:flex;justify-content:space-between;gap:5px}.info p{font-size:12px;color:#ddcfdd;line-height:1.45;min-height:34px;margin:9px 0 12px}.buttons{display:flex;gap:7px}.buttons .btn{flex:1;padding:9px 7px;font-size:11px}.empty{display:none;text-align:center;padding:25px;color:var(--muted)}
-.video-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}.video-card{background:var(--panel);border:1px solid #ffffff12;border-radius:17px;overflow:hidden}.video-card h3{font:22px Georgia,serif;margin:13px 15px 5px}.video-card p{font-size:12px;color:var(--muted);margin:0 15px 14px}.frame{position:relative;padding-top:56.25%;background:#09070b}.frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}.disclaimer{color:#bcaebe;font-size:12px;line-height:1.6;margin-top:12px}.note{margin:26px 0 12px;background:linear-gradient(110deg,#4b2943,#2b2034);border:1px solid #ffffff15;padding:22px;border-radius:18px;display:flex;justify-content:space-between;align-items:center;gap:14px}.note h2{font:27px Georgia,serif;margin:0 0 6px}.note p{margin:0;color:#e3d4e1;font-size:14px;line-height:1.5}.note span{font-size:42px}footer{text-align:center;border-top:1px solid #ffffff12;padding:25px 14px;color:#b4a4b6;font-size:12px}.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,90px);opacity:0;background:#ffacd0;color:#291523;padding:11px 17px;border-radius:99px;z-index:10;transition:.25s;font-weight:700}.toast.show{transform:translate(-50%,0);opacity:1}
-@media(max-width:850px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.poster{height:230px}.hero{grid-template-columns:1fr .8fr}}
-@media(max-width:600px){header{padding:12px 14px}.brand{font-size:21px}nav{gap:10px;font-size:12px}nav a:nth-child(2){display:none}select{padding:7px;font-size:12px}.hero{grid-template-columns:1fr;padding:30px 17px 15px;gap:20px}.hero-poster{height:230px;grid-row:1}.hero h1{font-size:43px}.hero-copy{grid-row:2}main section{padding:22px 14px}.heading h2{font-size:29px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.poster{height:205px}.title-overlay{font-size:19px}.info{padding:10px}.buttons{flex-direction:column}.buttons .btn{width:100%}.video-grid{grid-template-columns:1fr}.note{padding:18px}.note span{font-size:34px}}
-
-/* iPhone polish */
-html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
-body{padding-bottom:env(safe-area-inset-bottom)}
-header{padding-top:max(12px,env(safe-area-inset-top))}
-.poster img{object-fit:cover;background:#302335}
-.poster .poster-fallback{position:absolute;inset:0;display:none;align-items:center;justify-content:center;text-align:center;padding:18px;color:#fff;font:700 24px Georgia,serif;background:linear-gradient(145deg,var(--a),var(--b))}
-.poster.no-image img{display:none}.poster.no-image .poster-fallback{display:flex}
-.card{min-width:0}
-.title-overlay{overflow-wrap:anywhere}
-button,a,select,input{-webkit-tap-highlight-color:transparent}
-.btn,.filter,.fav,.social-link{touch-action:manipulation}
-@media(max-width:600px){
- header{display:grid;grid-template-columns:1fr auto;gap:9px;padding-left:13px;padding-right:13px}
- .brand{font-size:19px;overflow:hidden;text-overflow:ellipsis}
- header nav{grid-row:2;grid-column:1;gap:16px}
- header .socials{grid-row:1;grid-column:2;gap:5px}
- header select{grid-row:2;grid-column:2;max-width:112px}
- .hero{padding-top:22px}
- .hero-poster{height:min(74vw,340px);border-radius:22px}
- .hero h1{font-size:clamp(36px,10vw,46px)}
- .toolbar{gap:8px}
- .toolbar input{min-width:0;width:100%;flex-basis:100%;font-size:16px}
- .filters{width:100%}
- .filter{padding:9px 12px}
- .grid{gap:10px}
- .poster{height:clamp(175px,58vw,245px)}
- .title-overlay{font-size:clamp(16px,4.6vw,20px);left:10px;right:8px;bottom:10px}
- .fav{width:34px;height:34px}
- .meta{font-size:10px;flex-wrap:wrap}
- .info p{font-size:11px;min-height:42px}
- .buttons .btn{font-size:12px;padding:10px 6px}
- .note{align-items:flex-start}
-}
-@media(max-width:360px){
- .brand{font-size:17px}
- .social-link{padding:7px}
- .poster{height:168px}
- .info{padding:8px}
-}
+:root{--bg:#100b20;--panel:#211536;--panel2:#2d1d46;--pink:#ff5db1;--purple:#9c6bff;--text:#fff8ff;--muted:#cbbbdc;--line:#ffffff20;--good:#6df0b2;--bad:#ff8195}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#48216a 0%,#1a102d 40%,#100b20 78%);color:var(--text);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100dvh}
+button,input,select{font:inherit}button{border:0;cursor:pointer;color:white;font-weight:750;border-radius:16px;padding:13px 16px;transition:transform .15s,opacity .15s}button:active{transform:scale(.97)}button:disabled{opacity:.45;cursor:not-allowed}
+.primary{background:linear-gradient(120deg,#ff4fa7,#9a5cff);box-shadow:0 8px 24px #a14dff30}.secondary{background:#ffffff12;border:1px solid var(--line)}.danger{background:#ff5474}.small{padding:8px 11px;border-radius:12px;font-size:.9rem}
+.wrap{width:min(100%,620px);margin:auto;padding:18px 16px calc(28px + env(safe-area-inset-bottom))}.top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:4px 0 20px}.logo{font-weight:1000;font-size:1.55rem;letter-spacing:1px}.logo span{color:#ff8ecb}.pill{border:1px solid #ffffff25;background:#ffffff10;border-radius:99px;padding:7px 11px;color:var(--muted);font-size:.82rem}
+.hero{text-align:center;padding:28px 18px 22px;border:1px solid #ffffff20;border-radius:28px;background:linear-gradient(145deg,#ffffff12,#ffffff05);box-shadow:0 20px 55px #0003;overflow:hidden;position:relative}
+.heart{font-size:3.3rem;filter:drop-shadow(0 8px 18px #ff5db155);animation:float 2.6s ease-in-out infinite}@keyframes float{50%{transform:translateY(-8px) rotate(5deg)}}h1{font-size:clamp(2rem,9vw,3rem);line-height:1.02;margin:10px 0}h1 em{font-style:normal;color:#ff8acb}p{color:var(--muted);line-height:1.5}.card{background:linear-gradient(145deg,#281a3d,#1c132e);border:1px solid var(--line);border-radius:22px;padding:18px;margin-top:14px;box-shadow:0 12px 35px #0002}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field{display:flex;flex-direction:column;gap:7px;margin:12px 0;color:var(--muted);font-size:.92rem}input,select{width:100%;border:1px solid #ffffff24;border-radius:14px;background:#120c20;color:white;padding:13px 14px;outline:none}input:focus,select:focus{border-color:#ce8bff}.row{display:flex;gap:9px;align-items:center}.row>*{min-width:0}.row input{flex:1}.full{width:100%;margin-top:8px}.hidden{display:none!important}.section-title{font-size:1.1rem;margin:2px 0 10px}.muted{color:var(--muted);font-size:.9rem}.notice{padding:12px 14px;border-radius:14px;background:#ffffff0d;border:1px solid var(--line);font-size:.9rem;color:var(--muted);line-height:1.45;margin-top:12px}.status{font-size:.84rem;color:#ffb9df;min-height:20px;margin-top:8px}.players{display:flex;flex-wrap:wrap;gap:8px}.player{background:#ffffff10;border:1px solid var(--line);border-radius:14px;padding:9px 11px;display:flex;align-items:center;gap:7px}.dot{width:8px;height:8px;background:var(--good);border-radius:50%}.mode{display:flex;gap:8px}.mode button{flex:1}.mode .selected{outline:2px solid #ff8acb;background:#a743a0}.question{font-size:clamp(1.3rem,5vw,1.8rem);font-weight:850;line-height:1.25;color:white;margin:12px 0 18px}.answer-list{display:grid;gap:9px}.answer-list button{text-align:left;background:#ffffff10;border:1px solid var(--line);line-height:1.35}.answer-list button.chosen{border-color:#ff80c4;background:#a33d8950}.answer-list button.correct{border-color:var(--good)}.answer-list button.wrong{border-color:var(--bad)}.scoreline{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}.scoreline:last-child{border-bottom:0}.score{color:#ff9ed1;font-weight:900}.tiny{font-size:.78rem;color:var(--muted)}footer{text-align:center;color:#9585a9;font-size:.78rem;margin:24px 0 5px}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);max-width:calc(100% - 30px);background:#322044;border:1px solid #ffffff30;padding:12px 16px;border-radius:14px;z-index:10;box-shadow:0 10px 30px #0007}
+@media(min-width:560px){.wrap{padding-top:28px}.hero{padding:35px}.card{padding:22px}} 
 </style>
 </head>
 <body>
-<header>
- <a class="brand" href="#">Аяудың әлемі<span> ♡</span></a>
- <nav><a href="#series" data-ru="Сериалы" data-kk="Сериалдар">Сериалы</a><a href="#edits" data-ru="Эдиты" data-kk="Эдиттер">Эдиты</a></nav>
- <div class="socials">
-<a class="social-link" href="https://vt.tiktok.com/ZSgHnBqaP/" target="_blank" rel="noopener" aria-label="TikTok @lixi2442" title="TikTok @lixi2442"><svg viewBox="0 0 24 24"><path d="M19.6 7.1a6.8 6.8 0 0 1-4.2-1.5v8.1a6.1 6.1 0 1 1-5.2-6.05v3.2a2.9 2.9 0 1 0 2 2.75V2.5h3.2c.2 2.1 1.8 3.8 4.2 4.1z"/></svg>TikTok</a>
-<a class="social-link" href="https://www.instagram.com/b_aayau/" target="_blank" rel="noopener" aria-label="Instagram @b_aayau" title="Instagram @b_aayau"><svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2zm5 3.1a4.7 4.7 0 1 1 0 9.4 4.7 4.7 0 0 1 0-9.4zm0 2.2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z"/></svg>Instagram</a></div><select id="lang" aria-label="Language"><option value="ru">Русский</option><option value="kk">Қазақша</option><option value="tr">Türkçe</option></select>
-</header>
-<section class="hero">
- <div class="hero-copy">
-  <div class="tag" data-ru="Турецкие сериалы" data-kk="Түрік сериалдары">Турецкие сериалы</div>
-  <h1 data-ru="Мир турецких<br><em>сериалов</em>" data-kk="Түрік сериалдарының<br><em>әлемі</em>">Мир турецких<br><em>сериалов</em></h1>
-  <p data-ru="Выбирай сериал, смотри любимые сцены и находи новые истории." data-kk="Сериал таңда, сүйікті көріністерді көр және жаңа оқиғаларды тап.">Выбирай сериал, смотри любимые сцены и находи новые истории.</p>
-  <div class="actions"><a class="btn primary" href="#series" data-ru="Выбрать сериал ↓" data-kk="Сериал таңдау ↓">Выбрать сериал ↓</a><a class="btn secondary" href="#edits" data-ru="Смотреть видео ▶" data-kk="Видео көру ▶">Смотреть видео ▶</a></div>
- </div>
- <div class="hero-poster"><img src="https://ogmpictures.com/wp-content/uploads/2025/10/tasacak-bu-deniz-afis-942x1332-v2.webp" alt="Taşacak Bu Deniz afişi" onerror="this.onerror=null;this.src='https://img.halktv.com.tr/2/640/798/storage/old/d/other/2023/09/16/kizilcik-sereti.jpg'"></div>
-</section>
-<main>
-<section id="series">
- <div class="heading"><h2 data-ru="Выбери сериал" data-kk="Сериал таңда">Выбери сериал</h2><p data-ru="Постеры главных героев и переход на страницу просмотра" data-kk="Басты кейіпкерлердің постерлері және көру бетіне өту">Постеры главных героев и переход на страницу просмотра</p></div>
- <div class="toolbar"><input id="search" type="search" placeholder="🔎 Найти сериал..." data-ph-ru="🔎 Найти сериал..." data-ph-kk="🔎 Сериал іздеу..."><div class="filters"><button class="filter active" data-filter="all" data-ru="Все" data-kk="Барлығы">Все</button><button class="filter" data-filter="romance" data-ru="Романтика" data-kk="Романтика">Романтика</button><button class="filter" data-filter="drama" data-ru="Драма" data-kk="Драма">Драма</button></div></div>
- <div class="grid" id="grid"></div><div class="empty" id="empty" data-ru="Ничего не найдено." data-kk="Ештеңе табылмады.">Ничего не найдено.</div>
- <p class="disclaimer" data-ru=
-</section>
-<section id="edits">
- <div class="heading"><h2 data-ru="Видео и эдиты" data-kk="Видео және эдиттер">Видео и эдиты</h2><p data-ru="Официальный трейлер можно запускать прямо здесь" data-kk="Ресми трейлерді осы сайттың ішінде көруге болады">Официальный трейлер можно запускать прямо здесь</p></div>
- <div class="video-grid"><article class="video-card social-feature"><div class="social-feature-top"><div class="social-big">♪</div><div><h3>TikTok b_aayau</h3><p data-ru="Эдиты с указанного аккаунта. Нажми, чтобы открыть профиль и смотреть ролики." data-kk="Көрсетілген аккаунттағы эдиттер. Профильді ашып, видеоларын көру үшін бас.">Эдиты с указанного аккаунта. Нажми, чтобы открыть профиль и смотреть ролики.</p></div></div><a class="btn primary profile-btn" href="https://vt.tiktok.com/ZSgHnBqaP/" target="_blank" rel="noopener" data-ru="Открыть TikTok ↗" data-kk="TikTok ашу ↗">Открыть TikTok ↗</a></article>
-  <article class="video-card"><div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/WQ8aAdj2Oyo" title="Taşacak Bu Deniz official behind the scenes" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><h3>Taşacak Bu Deniz</h3><p data-ru="Официальное видео TRT 1" data-kk="TRT 1 ресми видеосы">Официальное видео TRT 1</p></article>
-  <article class="video-card"><div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/WQ8aAdj2Oyo" title="Taşacak Bu Deniz official behind the scenes" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><h3 data-ru="Ещё трейлер" data-kk="Тағы бір трейлер">Ещё трейлер</h3><p data-ru="Трейлер сериала с главными героями" data-kk="Басты кейіпкерлері бар сериал трейлері">Трейлер сериала с главными героями</p></article>
- </div>
- <p class="disclaimer" data-ru="" data-kk="."></p>
- <div class="note"><div><h2 data-ru="Приятного просмотра!" data-kk="Жақсы көрілім!">Приятного просмотра!</h2><p data-ru="Выбирай любимую историю и смотри её вместе с близкими." data-kk="Өзіңе ұнаған оқиғаны таңдап, жақындарыңмен бірге көр.">Выбирай любимую историю и смотри её вместе с близкими.</p></div><span>🎬</span></div>
-</section>
-</main>
-<footer>Аяудың әлемі · Түрік сериалдары / Турецкие сериалы</footer><div class="toast" id="toast"></div>
-<script>
-const shows=[
-{tr:"Taşacak Bu Deniz",ru:"Это море переполнится",kk:"Бұл теңіз тасиды",year:"2025",genre:"drama",cast:"Ulaş Tuna Astepe · Deniz Baysal · Burak Yörük · Ava Yaman",img:"https://ogmpictures.com/wp-content/uploads/2025/10/tasacak-bu-deniz-afis-942x1332-v2.webp",search:"Taşacak Bu Deniz",colors:["#3f7187","#b85e62"]},
-{tr:"Sen Çal Kapımı",ru:"Постучись в мою дверь",kk:"Сен есігімді қақ",year:"2020",genre:"romance",cast:"Hande Erçel · Kerem Bürsin",img:"https://m.media-amazon.com/images/M/MV5BMWI3ODI4OTktOTY5ZC00YmI0LThjN2EtYWE0MzQyNDEzOWNkXkEyXkFqcGc%40._V1_.jpg",search:"Sen Çal Kapımı",colors:["#73cbd2","#e87eac"]},
-{tr:"Erkenci Kuş",ru:"Ранняя пташка",kk:"Ерте келген құс",year:"2018",genre:"romance",cast:"Demet Özdemir · Can Yaman",img:"https://img-s2.onedio.com/id-69d4dda8fea21ff72f8b1ae7/rev-0/w-900/h-1078/f-jpg/s-be7950c385b9de9f36b33d268e23125d2066a226.jpg",search:"Erkenci Kuş",colors:["#f5a64d","#d45c8d"]},
-{tr:"Yalı Çapkını",ru:"Зимородок",kk:"Балықшы құс",year:"2022",genre:"drama",cast:"Afra Saraçoğlu · Mert Ramazan Demir",img:"https://m.media-amazon.com/images/M/MV5BZjlkNGUwYmEtNDU3MS00ZWU4LThjN2EtYWE0MzQyNzVkMWQ0XkEyXkFqcGc%40._V1_FMjpg_UX1000_.jpg",search:"Yalı Çapkını",colors:["#967c70","#4d354e"]},
-{tr:"Kiralık Aşk",ru:"Любовь напрокат",kk:"Жалға берілген махаббат",year:"2015",genre:"romance",cast:"Elçin Sangu · Barış Arduç",img:"https://image.pmgstatic.com/cache/resized/w663/files/images/film/posters/161/994/161994825_4d57f2.jpg",search:"Kiralık Aşk",colors:["#dc8ba9","#704c89"]},
-{tr:"Siyah Beyaz Aşk",ru:"Чёрно-белая любовь",kk:"Ақ пен қара махаббат",year:"2017",genre:"drama",cast:"İbrahim Çelikkol · Birce Akalay",img:"https://i.imgur.com/lex2uA5.jpg",search:"Siyah Beyaz Aşk",colors:["#46344f","#a94f69"]},
-{tr:"Kızılcık Şerbeti",ru:"Клюквенный щербет",kk:"Мүкжидек шәрбеті",year:"2022",genre:"drama",cast:"Evrim Alasya · Barış Kılıç · Sıla Türkoğlu",img:"https://img.halktv.com.tr/2/640/798/storage/old/d/other/2023/09/16/kizilcik-sereti.jpg",search:"Kızılcık Şerbeti",colors:["#bd5668","#4a2a54"]},
-{tr:"Aşk Laftan Anlamaz",ru:"Любовь не понимает слов",kk:"Махаббат сөзден түсінбейді",year:"2016",genre:"romance",cast:"Hande Erçel · Burak Deniz",img:"https://serieturcheitalia.it/wp-content/uploads/2025/03/Ask-Laftan-Anlamaz-Serie-Turca-1.jpg",search:"Aşk Laftan Anlamaz",colors:["#e49a9d","#80629b"]},
-{tr:"Dolunay",ru:"Полнолуние",kk:"Толған ай",year:"2017",genre:"romance",cast:"Özge Gürel · Can Yaman",img:"https://static.tvmaze.com/uploads/images/original_untouched/122/306140.jpg",search:"Dolunay",colors:["#9a8bca","#4c517f"]}
+<div class="wrap">
+  <header class="top"><div class="logo">RAF <span>GAME</span> 💗</div><div class="pill" id="connection">● не подключено</div></header>
+
+  <section id="home">
+    <div class="hero"><div class="heart">💖</div><h1>GIRLS PARTY<br><em>& LOVE QUIZ</em></h1><p>Секреты, смех и вопросы для вашей компании.<br>Собирай подруг — начинаем!</p></div>
+    <div class="card">
+      <h2 class="section-title">✨ Как тебя зовут?</h2>
+      <label class="field">Твоё имя<input id="name" maxlength="18" placeholder="Например, Rafet" autocomplete="nickname"></label>
+      <div class="grid"><button class="primary" id="createBtn">＋ Создать комнату</button><button class="secondary" id="joinToggle">Войти по коду</button></div>
+      <div id="joinArea" class="hidden"><label class="field">Код комнаты<input id="roomInput" maxlength="6" placeholder="ABC123" autocapitalize="characters"></label><button class="primary full" id="joinBtn">Войти в комнату 💕</button></div>
+      <div class="status" id="homeStatus"></div>
+    </div>
+    <div class="notice">🔒 Регистрация не нужна. Игра использует анонимное подключение Firebase. Не вводите настоящие пароли или личные секреты.</div>
+  </section>
+
+  <section id="lobby" class="hidden">
+    <div class="hero"><div class="heart">🎉</div><h1>Комната <em id="roomCode">------</em></h1><p>Отправь подругам код и дождись, пока они подключатся.</p><button class="secondary" id="copyBtn">📋 Скопировать код</button></div>
+    <div class="card"><h2 class="section-title">👯 Игроки <span id="playerCount" class="pill">0/10</span></h2><div id="players" class="players"></div>
+      <div class="field">Выберите режим<select id="gameMode"><option value="party">Правда или действие 🎲</option><option value="love">LOVE QUIZ 💘</option><option value="mix">Сюрприз-микс 🎁</option></select></div>
+      <button class="primary full" id="startBtn">Начать игру 🚀</button><button class="secondary full" id="leaveBtn">Выйти из комнаты</button><div class="status" id="lobbyStatus"></div>
+    </div>
+    <div class="notice">Нужно минимум 2 игрока, чтобы начать. Комнаты и ответы доступны участникам этой комнаты.</div>
+  </section>
+
+  <section id="game" class="hidden">
+    <div class="top"><div><div class="pill">Комната <b id="gameRoomCode"></b></div></div><button class="secondary small" id="backLobbyBtn">Игроки</button></div>
+    <div class="card">
+      <div class="row" style="justify-content:space-between"><div class="pill" id="roundLabel">Раунд 1</div><div class="pill" id="turnLabel">Ход игрока</div></div>
+      <h2 id="gameTitle" class="section-title" style="margin-top:16px">Правда или действие</h2>
+      <div id="gamePrompt" class="question">Готовы играть? 💗</div>
+      <div id="partyChoices" class="mode"><button class="secondary" data-kind="truth">💬 Правда</button><button class="secondary" data-kind="dare">🔥 Действие</button></div>
+      <div id="quizChoices" class="answer-list hidden"></div>
+      <div id="gameFeedback" class="notice hidden"></div>
+      <button class="primary full" id="nextBtn">Следующий ход ➜</button>
+    </div>
+    <div class="card"><h2 class="section-title">🏆 Счёт</h2><div id="scores"></div></div>
+    <div class="card"><h2 class="section-title">💬 Чат комнаты</h2><div id="chatMessages" style="max-height:180px;overflow:auto"></div><div class="row" style="margin-top:12px"><input id="chatInput" maxlength="180" placeholder="Напиши что-нибудь…"><button class="primary" id="sendChat">➤</button></div></div>
+  </section>
+  <footer>RAF GAME · играйте бережно и уважайте границы друг друга 💗</footer>
+</div>
+<div id="toast" class="toast hidden"></div>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+import { getDatabase, ref, set, get, update, onValue, off, remove, push, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-database.js";
+
+// 1. Вставь сюда конфигурацию своего Firebase-проекта из Firebase Console.
+
+const firebaseConfig = {
+  apiKey: "AIzaSyADSO-0umYKPnsdusf9htqr885pywenXovk",
+  authDomain: "raf-game-a299b.firebaseapp.com",
+  databaseURL: "https://raf-game-a299b-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "raf-game-a299b",
+  storageBucket: "raf-game-a299b.firebasestorage.app",
+  messagingSenderId: "685996073546",
+  appId: "1:685996073546:web:172b2bef7c696942c2fcb3",
+  measurementId: "G-SXFT52M2Y9"
+};
+
+
+const $ = id => document.getElementById(id);
+const screens = ["home","lobby","game"];
+let app, auth, db, uid=null, roomId=null, playerName="", roomData=null, unsubRoom=null, unsubChat=null, currentKind=null, selectedAnswer=null;
+const truth = [
+"Какой поступок заставил тебя улыбаться весь день?","Кто из компании лучше всех хранит секреты?","Ты когда-нибудь скрывала симпатию к кому-то?","Какое первое впечатление ты производишь, а какая ты на самом деле?","Какой самый неловкий момент был у тебя на свидании?","Что для тебя важнее: внимание или красивые слова?","Кому из компании ты доверила бы важный секрет?","Какой комплимент ты запомнила надолго?","Какой у тебя самый смешной страх?","Что ты никогда не простишь в дружбе?","Какой твой идеальный вечер?","Ты когда-нибудь ревновала подругу?","Что может моментально поднять тебе настроение?","Какой самый спонтанный поступок ты совершала?","Есть ли песня, которая напоминает тебе о ком-то?","Какое качество первым привлекает тебя в человеке?","Что ты хотела бы попробовать, но пока стесняешься?","Какой самый смешной слух о себе ты слышала?","Кто из компании чаще всех заставляет тебя смеяться?","Что бы ты изменила в своём первом впечатлении о ком-то?"
 ];
-let filter='all',favorites=JSON.parse(localStorage.getItem('askdunyasi_favs')||'[]'),lang='ru';
-const grid=document.getElementById('grid');
-const titleFor=s=>lang==='tr'?s.tr:(lang==='kk'?s.kk:s.ru);
-function render(){
- let q=document.getElementById('search').value.toLowerCase().trim();
- let arr=shows.filter(s=>(filter==='all'||s.genre===filter)&&([s.tr,s.ru,s.kk,s.cast].join(' ').toLowerCase().includes(q)));
- grid.innerHTML=arr.map(s=>{
-  let i=shows.indexOf(s),name=titleFor(s),genre=s.genre==='romance'?(lang==='kk'?'Романтика':lang==='tr'?'Romantik':'Романтика'):(lang==='kk'?'Драма':lang==='tr'?'Dram':'Драма');
-  let photo=`<img src="${s.img}" alt="${s.tr} — afiş" loading="lazy" onerror="this.onerror=null;this.closest('.poster').classList.add('no-image')"><div class="poster-fallback">${s.tr}</div>`;
-  return `<article class="card"><div class="poster" style="--a:${s.colors[0]};--b:${s.colors[1]}">${photo}<button class="fav ${favorites.includes(i)?'saved':''}" onclick="toggleFav(${i})" aria-label="${lang==='kk'?'Таңдаулыға қосу':lang==='tr'?'Favorilere ekle':'Добавить в избранное'}">${favorites.includes(i)?'♥':'♡'}</button><div class="title-overlay">${name}</div></div><div class="info"><div class="meta"><span>${s.year} · Türkiye</span><span>${genre}</span></div><p>${s.cast}</p><div class="buttons"><a class="btn primary" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=${encodeURIComponent(s.search+' official episodes')}">${lang==='kk'?'Көру ↗':lang==='tr'?'İzle ↗':'Смотреть ↗'}</a><a class="btn secondary" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=${encodeURIComponent(s.search+' edit')}">${lang==='kk'?'Эдиттер':lang==='tr'?'Editler':'Эдиты'} ▶</a></div></div></article>`
- }).join('');
- document.getElementById('empty').style.display=arr.length?'none':'block'
+const dares = [
+"Сделай комплимент каждому игроку.","Изобрази свою реакцию на сообщение от краша.","Спой 10 секунд любой песни.","Расскажи историю так, будто ты ведущая новостей.","Покажи самое смешное безопасное фото, если хочешь.","Придумай каждому игроку забавное прозвище на этот раунд.","Скажи фразу «я легенда» с максимально серьёзным лицом.","Сделай смешную позу на 5 секунд.","Придумай рекламный слоган для своей подруги.","Изобрази эмоцию, которую выберет компания.","Расскажи мини-историю, используя слова «кот», «любовь» и «пицца».","Покажи свой лучший танцевальный жест.","Скажи три вещи, которые тебе нравятся в себе.","Придумай название фильма про вашу компанию.","Произнеси скороговорку три раза."
+];
+const quiz = [
+{q:"Что для тебя важнее в отношениях?",a:["Доверие","Романтика","Юмор","Поддержка"]},
+{q:"Идеальное свидание — это…",a:["Прогулка ночью","Уютный вечер","Приключение","Вкусный ужин"]},
+{q:"Какой подарок радует больше?",a:["Что-то сделанное вручную","Любимый десерт","Неожиданный сюрприз","Время вместе"]},
+{q:"Что быстрее всего поднимает настроение?",a:["Музыка","Объятия","Мемы","Разговор с подругой"]},
+{q:"Что важнее в дружбе?",a:["Честность","Верность","Общие шутки","Поддержка"]},
+{q:"Как обычно показываешь симпатию?",a:["Заботой","Шутками","Комплиментами","Смущаюсь и молчу"]},
+{q:"Выбери идеальный выходной",a:["Дома с фильмом","Гулять с друзьями","Поехать куда-нибудь","Спать и вкусно есть"]},
+{q:"Что самое привлекательное в человеке?",a:["Доброта","Уверенность","Чувство юмора","Искренность"]},
+{q:"Какой ты персонаж в компании?",a:["Организатор","Весельчак","Советчик","Тихий наблюдатель"]},
+{q:"Какой вечер выберешь?",a:["Караоке","Настолки","Кино и снеки","Спонтанная прогулка"]}
+];
+const mixed = [
+{type:"party",text:"Правда или действие?",truth:true},
+{type:"party",text:"Назови одну вещь, за которую ты ценишь человека справа."},
+{type:"party",text:"Расскажи о своём самом смешном фейле."},
+{type:"party",text:"Кто из компании мог бы стать знаменитостью и почему?"},
+{type:"party",text:"Какой маленький жест для тебя очень романтичный?"},
+{type:"quiz",q:"Какой стиль отдыха тебе ближе?",a:["Тихий уют","Большая вечеринка","Путешествие","Активный день"]}
+];
+function showScreen(id){screens.forEach(s=>$(s).classList.toggle("hidden",s!==id));}
+function status(id,msg){$(id).textContent=msg||"";}
+function toast(msg){$("toast").textContent=msg;$("toast").classList.remove("hidden");setTimeout(()=>$("toast").classList.add("hidden"),2400);}
+function cleanName(s){return (s||"").trim().replace(/[<>]/g,"").slice(0,18);}
+function validConfig(){return firebaseConfig.apiKey!=="ВСТАВЬ_API_KEY" && firebaseConfig.projectId!=="ВСТАВЬ_PROJECT_ID";}
+async function initFirebase(){
+ if(!validConfig()){ $("connection").textContent="● нужна настройка"; status("homeStatus","Сначала подключи Firebase — инструкция в README.txt."); return false; }
+ try{app=initializeApp(firebaseConfig);auth=getAuth(app);db=getDatabase(app);await signInAnonymously(auth);uid=auth.currentUser?.uid; $("connection").textContent="● онлайн";return !!uid;}
+ catch(e){console.error(e);$("connection").textContent="● ошибка";status("homeStatus","Не удалось подключиться. Проверь Firebase Config и включи Anonymous Authentication.");return false;}
 }
-function toggleFav(i){
- favorites=favorites.includes(i)?favorites.filter(x=>x!==i):[...favorites,i];
- localStorage.setItem('askdunyasi_favs',JSON.stringify(favorites));render();
- let t=document.getElementById('toast');
- t.textContent=lang==='kk'?'Таңдаулылар жаңартылды ♡':lang==='tr'?'Favoriler güncellendi ♡':'Избранное обновлено ♡';
- t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500)
+function roomRef(){return ref(db,`rooms/${roomId}`);}
+function playerRef(id=uid){return ref(db,`rooms/${roomId}/players/${id}`);}
+function code(){return Math.random().toString(36).slice(2,8).toUpperCase();}
+async function createRoom(){
+ playerName=cleanName($("name").value);if(!playerName)return status("homeStatus","Введи своё имя.");
+ if(!await initFirebase())return;
+ status("homeStatus","Создаём комнату…");
+ try{
+  let id=code();for(let i=0;i<4&&(await get(ref(db,`rooms/${id}`))).exists();i++)id=code();
+  roomId=id;const now=Date.now();
+  await set(roomRef(),{createdAt:now,host:uid,status:"lobby",mode:"party",round:0,currentPlayer:uid,players:{[uid]:{name:playerName,score:0,joinedAt:now}},game:{type:"party",prompt:"Выбери «Правда» или «Действие» 💗",round:0,answered:false}});
+  listenRoom();showScreen("lobby");renderRoom();status("lobbyStatus","Комната создана! Отправь код подругам.");
+ }catch(e){console.error(e);status("homeStatus","Не получилось создать комнату. Проверь правила Realtime Database.");}
 }
-document.getElementById('search').addEventListener('input',render);
-document.querySelectorAll('.filter').forEach(b=>b.addEventListener('click',()=>{
- document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');filter=b.dataset.filter;render()
-}));
-document.getElementById('lang').addEventListener('change',e=>{
- lang=e.target.value;document.documentElement.lang=lang;
- document.querySelectorAll('[data-ru][data-kk]').forEach(el=>{el.innerHTML=lang==='kk'?el.dataset.kk:el.dataset.ru});
- let inp=document.getElementById('search');
- inp.placeholder=lang==='kk'?inp.dataset.phKk:inp.dataset.phRu;
- document.querySelector('.brand').innerHTML=lang==='tr'?"Ayau'nun Dünyası<span> ♡</span>":'Аяудың әлемі<span> ♡</span>';
- render()
-});
-render();
-</script></body></html>
+async function joinRoom(){
+ playerName=cleanName($("name").value);const id=$("roomInput").value.trim().toUpperCase();
+ if(!playerName)return status("homeStatus","Сначала введи своё имя.");
+ if(!/^[A-Z0-9]{6}$/.test(id))return status("homeStatus","Код должен состоять из 6 символов.");
+ if(!await initFirebase())return;
+ try{
+  const snap=await get(ref(db,`rooms/${id}`));if(!snap.exists())return status("homeStatus","Комната не найдена. Проверь код.");
+  const data=snap.val();if(data.status==="finished")return status("homeStatus","Эта игра уже завершена.");
+  if(Object.keys(data.players||{}).length>=10 && !data.players[uid])return status("homeStatus","В комнате уже 10 игроков.");
+  roomId=id;await set(playerRef(),{name:playerName,score:0,joinedAt:Date.now()});
+  listenRoom();showScreen(data.status==="playing"?"game":"lobby");renderRoom();
+ }catch(e){console.error(e);status("homeStatus","Не удалось войти. Проверь настройки Firebase.");}
+}
+function listenRoom(){
+ if(unsubRoom)off(roomRef());
+ unsubRoom=onValue(roomRef(),snap=>{
+  if(!snap.exists()){toast("Комната закрыта.");leaveLocal();return;}
+  roomData=snap.val();renderRoom();
+  if(roomData.status==="playing")showScreen("game");else if(roomData.status==="lobby")showScreen("lobby");
+ });
+ const cr=ref(db,`rooms/${roomId}/chat`);
+ if(unsubChat)off(cr);
+ unsubChat=onValue(cr,s=>renderChat(s.val()||{}));
+}
+function renderRoom(){
+ if(!roomData)return;
+ $("roomCode").textContent=roomId||"------";$("gameRoomCode").textContent=roomId||"";
+ const ps=Object.entries(roomData.players||{}).sort((a,b)=>(a[1].joinedAt||0)-(b[1].joinedAt||0));
+ $("playerCount").textContent=`${ps.length}/10`;
+ $("players").innerHTML=ps.map(([id,p])=>`<div class="player"><span class="dot"></span>${escapeHtml(p.name||"Игрок")}${id===roomData.host?" 👑":""}</div>`).join("");
+ $("startBtn").disabled=uid!==roomData.host||ps.length<2;
+ if(uid!==roomData.host)$("lobbyStatus").textContent="Ждём, пока ведущий начнёт игру…";
+ renderGame();renderScores();
+}
+function escapeHtml(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+async function startGame(){
+ if(!roomData||uid!==roomData.host)return;
+ if(Object.keys(roomData.players||{}).length<2)return status("lobbyStatus","Нужно минимум 2 игрока.");
+ await update(roomRef(),{status:"playing",mode:$("gameMode").value,round:1,currentPlayer:uid,"game/type":"party","game/prompt":"Выбери «Правда» или «Действие» 💗","game/round":1,"game/answered":false,"game/createdAt":Date.now()});
+}
+function renderGame(){
+ if(!roomData||!roomData.game)return;
+ const g=roomData.game,ps=Object.entries(roomData.players||{}),turn=(roomData.currentPlayer&&roomData.players?.[roomData.currentPlayer])?.name||"Игрок";
+ $("roundLabel").textContent=`Раунд ${roomData.round||1}`;$("turnLabel").textContent=`Ход: ${turn}`;
+ $("gameTitle").textContent=g.type==="quiz"?"LOVE QUIZ 💘":g.type==="party"?"Правда или действие 🎲":"Сюрприз 🎁";
+ $("gamePrompt").textContent=g.prompt||"Следующий вопрос…";
+ $("partyChoices").classList.toggle("hidden",g.type!=="party");$("quizChoices").classList.toggle("hidden",g.type!=="quiz");
+ $("quizChoices").innerHTML="";
+ if(g.type==="quiz"&&g.options){g.options.forEach((a,i)=>{const b=document.createElement("button");b.textContent=`${["💗","✨","🌸","💜"][i%4]} ${a}`;b.className="";if(g.answers?.[uid]===i)b.classList.add("chosen");if(g.revealed&&i===g.correct)b.classList.add("correct");b.disabled=!!g.revealed||!!g.answers?.[uid];b.onclick=()=>answerQuiz(i);$("quizChoices").appendChild(b);});}
+ $("gameFeedback").classList.toggle("hidden",!g.revealed);if(g.revealed)$("gameFeedback").textContent=g.type==="quiz"?`Ответ ведущего: ${g.options?.[g.correct]||"—"}. Совпавшие ответы получают очко!`:"Раунд завершён — передайте ход следующему игроку.";
+ $("nextBtn").disabled=uid!==roomData.host;
+ document.querySelectorAll("[data-kind]").forEach(b=>b.classList.toggle("selected",b.dataset.kind===g.kind));
+}
+async function chooseKind(kind){
+ if(!roomData||uid!==roomData.currentPlayer)return toast("Сейчас ход другого игрока.");
+ const item=(kind==="truth"?truth:dares)[Math.floor(Math.random()*(kind==="truth"?truth:dares).length)];
+ await update(ref(db,`rooms/${roomId}/game`),{type:"party",kind,prompt:item,answered:false,revealed:true,options:null,answers:null});
+}
+async function nextTurn(){
+ if(!roomData||uid!==roomData.host)return;
+ const ids=Object.keys(roomData.players||{}).sort((a,b)=>(roomData.players[a].joinedAt||0)-(roomData.players[b].joinedAt||0));
+ if(!ids.length)return;
+ const idx=Math.max(0,ids.indexOf(roomData.currentPlayer)),next=ids[(idx+1)%ids.length],round=(roomData.round||1)+1;
+ let mode=roomData.mode||"party",type="party",prompt="Выбери «Правда» или «Действие» 💗",opts=null,correct=null;
+ if(mode==="love"||(mode==="mix"&&Math.random()>.45)){type="quiz";const q=quiz[Math.floor(Math.random()*quiz.length)];prompt=q.q;opts=q.a;correct=Math.floor(Math.random()*q.a.length);}
+ else if(mode==="mix"&&Math.random()>.5){prompt=mixed[Math.floor(Math.random()*mixed.length)].text;}
+ await update(roomRef(),{currentPlayer:next,round,"game/type":type,"game/prompt":prompt,"game/options":opts,"game/correct":correct,"game/answers":null,"game/revealed":false,"game/kind":null,"game/round":round,"game/answered":false});
+}
+async function answerQuiz(i){
+ if(!roomData||uid!==roomData.currentPlayer)return toast("Сейчас ход другого игрока.");
+ const g=roomData.game;if(g.answers?.[uid]!==undefined)return;
+ await update(ref(db,`rooms/${roomId}/game/answers`),{[uid]:i});
+ const updated=await get(ref(db,`rooms/${roomId}/game/answers`));const answers=updated.val()||{};
+ if(Object.keys(answers).length>=Object.keys(roomData.players||{}).length){
+  const changes={"game/revealed":true};const correct=g.correct;
+  for(const [id,ans] of Object.entries(answers)){if(ans===correct)changes[`players/${id}/score`]=(roomData.players[id]?.score||0)+1;}
+  await update(roomRef(),changes);
+ }
+}
+function renderScores(){
+ if(!roomData)return;
+ const ps=Object.entries(roomData.players||{}).sort((a,b)=>(b[1].score||0)-(a[1].score||0));
+ $("scores").innerHTML=ps.map(([id,p,i])=>`<div class="scoreline"><span>${id===roomData.host?"👑 ":""}${escapeHtml(p.name||"Игрок")}</span><span class="score">${p.score||0} очк.</span></div>`).join("");
+}
+function renderChat(data){
+ const entries=Object.entries(data).sort((a,b)=>(a[1].at||0)-(b[1].at||0)).slice(-40);
+ $("chatMessages").innerHTML=entries.map(([id,m])=>`<div style="margin:7px 0"><b>${escapeHtml(m.name||"Игрок")}</b> <span class="tiny">${m.at?new Date(m.at).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}):""}</span><div>${escapeHtml(m.text||"")}</div></div>`).join("");
+ $("chatMessages").scrollTop=$("chatMessages").scrollHeight;
+}
+async function sendChat(){
+ const textMsg=$("chatInput").value.trim();if(!textMsg||!roomId)return;
+ $("chatInput").value="";
+ try{await push(ref(db,`rooms/${roomId}/chat`),{name:playerName,text:textMsg.slice(0,180),at:Date.now()});}
+ catch(e){toast("Не удалось отправить сообщение.");}
+}
+async function leaveLocal(){
+ if(unsubRoom&&roomId)off(roomRef());if(unsubChat&&roomId)off(ref(db,`rooms/${roomId}/chat`));
+ roomId=null;roomData=null;showScreen("home");
+}
+async function leaveRoom(){
+ if(!roomId)return;
+ try{
+  const wasHost=roomData?.host===uid;
+  await remove(playerRef());
+  const snap=await get(roomRef());
+  if(snap.exists()){
+   const data=snap.val(),ids=Object.keys(data.players||{});
+   if(!ids.length)await remove(roomRef());
+   else if(wasHost)await update(roomRef(),{host:ids[0],currentPlayer:ids[0]});
+  }
+ }catch(e){console.warn(e);}
+ await leaveLocal();
+}
+$("joinToggle").onclick=()=>$("joinArea").classList.toggle("hidden");
+$("createBtn").onclick=createRoom;$("joinBtn").onclick=joinRoom;
+$("roomInput").addEventListener("input",e=>e.target.value=e.target.value.toUpperCase().replace(/[^A-Z0-9]/g,"").slice(0,6));
+$("startBtn").onclick=startGame;$("leaveBtn").onclick=leaveRoom;$("backLobbyBtn").onclick=()=>showScreen("lobby");
+$("copyBtn").onclick=async()=>{try{await navigator.clipboard.writeText(roomId);toast("Код скопирован: "+roomId);}catch{toast("Код комнаты: "+roomId);}};
+document.querySelectorAll("[data-kind]").forEach(b=>b.onclick=()=>chooseKind(b.dataset.kind));
+$("nextBtn").onclick=nextTurn;$("sendChat").onclick=sendChat;$("chatInput").addEventListener("keydown",e=>{if(e.key==="Enter")sendChat();});
+window.addEventListener("beforeunload",()=>{if(roomId&&uid)remove(playerRef()).catch(()=>{});});
+</script>
+</body>
+</html>
