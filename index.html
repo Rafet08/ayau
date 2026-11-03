@@ -29,6 +29,7 @@ h2{font-size:1.08rem;margin:0 0 13px;letter-spacing:.1px}.field{display:flex;fle
  <div class="card">
   <h2>Начать игру</h2>
   <label class="field">Твоё имя<input id="name" maxlength="18" placeholder="Введи имя" autocomplete="nickname"></label>
+  <label class="field">Режим игры<select id="mode"><option value="questions">Вопросы и задания</option><option value="mafia">Мафия 🕵️</option></select></label>
   <label class="field">Язык вопросов в твоей комнате
    <select id="language"><option value="ru">Русский 🇷🇺</option><option value="kk">Қазақша 🇰🇿</option></select>
   </label>
@@ -50,6 +51,7 @@ h2{font-size:1.08rem;margin:0 0 13px;letter-spacing:.1px}.field{display:flex;fle
 <section id="game" class="hidden">
  <div class="top"><div class="badge">КОМНАТА <b id="gameRoomCode">------</b></div><button class="secondary" id="backLobbyBtn" style="min-height:40px;padding:8px 12px">Игроки</button></div>
  <div class="pill-row" style="margin-bottom:10px"><span class="pill" id="roundLabel">ВОПРОС 1</span><span class="pill" id="langPill">РУССКИЙ</span></div>
+ <div id="questionMode">
  <div class="card question-card">
   <div class="kicker" id="categoryLabel">LOVE / FRIENDS</div>
   <div class="question" id="gamePrompt">Готовы?</div>
@@ -61,6 +63,14 @@ h2{font-size:1.08rem;margin:0 0 13px;letter-spacing:.1px}.field{display:flex;fle
  <div class="status" id="gameStatus"></div>
  <div class="card"><h2>Участники</h2><div id="gamePlayers" class="players"></div></div>
  <div class="card"><h2>Чат комнаты</h2><div class="chat-list" id="chatMessages"></div><div class="row" style="margin-top:12px"><input id="chatInput" maxlength="180" placeholder="Написать ответ или сообщение…"><button class="primary" id="sendChat" style="min-width:52px;padding:10px">↑</button></div></div>
+ </div>
+ <div id="mafiaMode" class="hidden">
+  <div class="card question-card"><div class="kicker">MAFIA · <span id="mafiaPhase">НОЧЬ</span></div><div class="question" id="mafiaTitle">Город засыпает…</div><p class="question-note" id="mafiaDescription">Посмотри свою роль и не показывай её другим.</p></div>
+  <div class="card"><h2>Твоя секретная роль</h2><div class="question" id="myRole" style="font-size:1.6rem">Нажми «Показать роль»</div><button class="secondary full" id="revealRoleBtn">Показать мою роль</button><p class="hint">Роль видна только на твоём экране. Не показывай телефон другим игрокам.</p></div>
+  <div class="card"><h2>Игроки и голосование</h2><div id="mafiaPlayers" class="players"></div><label class="field">Выбери игрока для действия / голосования<select id="mafiaTarget"><option value="">Выбери игрока</option></select></label><button class="primary full" id="mafiaActionBtn">Отправить голос / действие</button><div class="status" id="mafiaStatus"></div></div>
+  <div class="card"><h2>Голоса</h2><div id="mafiaVotes" class="hint">Пока голосов нет.</div></div>
+  <button class="primary full" id="mafiaNextBtn">Ведущий: следующий этап</button>
+ </div>
  <button class="secondary full" id="leaveGameBtn">Завершить / выйти</button>
 </section>
 <div class="footer">RAF GAME · уважайте границы друг друга. Любой вопрос можно пропустить.</div>
@@ -593,7 +603,7 @@ async function createRoom(){
   let id=randomCode();for(let n=0;n<5&&(await get(ref(db,`rooms/${id}`))).exists();n++)id=randomCode();
   roomId=id;const now=Date.now();
   const q=qFor(roomLanguage);
-  await set(roomRef(),{createdAt:now,host:uid,status:"lobby",language:roomLanguage,round:0,currentPlayer:uid,usedQuestions:[],players:{[uid]:{name:playerName,score:0,joinedAt:now}},game:{category:q.category,prompt:q.prompt,questionIndex:q.questionIndex}});
+  await set(roomRef(),{createdAt:now,host:uid,status:"lobby",mode:$("mode").value,language:roomLanguage,round:0,currentPlayer:uid,usedQuestions:[],players:{[uid]:{name:playerName,score:0,joinedAt:now}},game:{category:q.category,prompt:q.prompt,questionIndex:q.questionIndex}});
   listenRoom();showScreen("lobby");renderRoom();setStatus("lobbyStatus","Комната готова. Отправь код друзьям.");
  }catch(e){console.error(e);setStatus("homeStatus","Не удалось создать комнату. Проверь правила Realtime Database.");}
 }
@@ -617,7 +627,7 @@ function listenRoom(){
  roomUnsubscribe=onValue(roomRef(),snap=>{
   if(!snap.exists()){toast("Комната закрыта");cleanupLocal();return;}
   roomData=snap.val();roomLanguage=roomData.language||"ru";renderRoom();
-  if(roomData.status==="playing")showScreen("game");else showScreen("lobby");
+  if(roomData.status==="playing"||roomData.status==="finished")showScreen("game");else showScreen("lobby");
  });
  chatUnsubscribe=onValue(ref(db,`rooms/${roomId}/chat`),snap=>renderChat(snap.val()||{}));
 }
@@ -632,13 +642,21 @@ function renderRoom(){
  $("gamePlayers").innerHTML=$("players").innerHTML;
  $("startBtn").disabled=uid!==roomData.host||ps.length<2||roomData.status==="playing";
  if(uid!==roomData.host)setStatus("lobbyStatus","Ожидаем ведущего. Можно отправить код ещё одной подруге.");
- renderGame();
+ if(roomData.mode==="mafia"){ $("questionMode").classList.add("hidden");$("mafiaMode").classList.remove("hidden");renderMafia(); }else{$("questionMode").classList.remove("hidden");$("mafiaMode").classList.add("hidden");renderGame();}
 }
 async function startGame(){
  if(!roomData||uid!==roomData.host)return;
- if(Object.keys(roomData.players||{}).length<2)return setStatus("lobbyStatus","Нужно минимум 2 игрока.");
- const q=qFor(roomLanguage);
- await update(roomRef(),{status:"playing",round:1,currentPlayer:uid,usedQuestions:[q.questionIndex],"game/category":q.category,"game/prompt":q.prompt,"game/questionIndex":q.questionIndex});
+ const ids=Object.keys(roomData.players||{});if(ids.length<2)return setStatus("lobbyStatus","Нужно минимум 2 игрока.");
+ if(roomData.mode==="mafia"){
+  if(ids.length<5)return setStatus("lobbyStatus","Для мафии нужно минимум 5 игроков.");
+  const shuffled=[...ids].sort(()=>Math.random()-.5),roles={};
+  const mafiaCount=ids.length>=8?2:1;shuffled.forEach((id,i)=>roles[id]=i<mafiaCount?"mafia":(i===mafiaCount?"doctor":(i===mafiaCount+1?"detective":"citizen")));
+  const privateRoles={};ids.forEach(id=>privateRoles[id]=roles[id]);
+  await set(ref(db,`rooms/${roomId}/privateRoles`),privateRoles);
+  await update(roomRef(),{status:"playing",round:1,mafia:{phase:"night",votes:{},alive:Object.fromEntries(ids.map(id=>[id,true])),rolesAssigned:true}});
+  return;
+ }
+ const q=qFor(roomLanguage);await update(roomRef(),{status:"playing",round:1,currentPlayer:uid,usedQuestions:[q.questionIndex],"game/category":q.category,"game/prompt":q.prompt,"game/questionIndex":q.questionIndex});
 }
 function renderGame(){
  if(!roomData?.game)return;
@@ -659,6 +677,35 @@ async function nextQuestion(){
  const updates={currentPlayer:next,round,usedQuestions:[...used,q.questionIndex],"game/category":q.category,"game/prompt":q.prompt,"game/questionIndex":q.questionIndex};
  await update(roomRef(),updates);setStatus("gameStatus","");
 }
+
+let myMafiaRole=null;
+async function renderMafia(){
+ if(!roomData||roomData.mode!=="mafia")return;
+ if(roomData.status==="finished"){ $("mafiaTitle").textContent=roomData.mafia?.winner==="mafia"?"Победила мафия!":"Победили мирные жители!";$("mafiaDescription").textContent="Игра окончена.";$("mafiaNextBtn").disabled=true;return;}
+ const m=roomData.mafia||{},alive=m.alive||{},players=roomData.players||{};
+ const phase=m.phase||"night";$("mafiaPhase").textContent=phase==="night"?"НОЧЬ":"ДЕНЬ";
+ $("mafiaTitle").textContent=phase==="night"?"Город засыпает…":"Город просыпается. Обсуждайте и голосуйте!";
+ $("mafiaDescription").textContent=phase==="night"?"Мафия и специальные роли выбирают цель. Остальные ждут утра.":"Обсудите, кто может быть мафией, и выберите подозреваемого.";
+ const entries=Object.entries(players);$("mafiaPlayers").innerHTML=entries.map(([id,p])=>`<div class="player"><span class="dot" style="background:${alive[id]===false?'#777':'#eee'}"></span>${escapeHtml(p.name||'Игрок')}${alive[id]===false?' · выбыл':''}</div>`).join("");
+ $("mafiaTarget").innerHTML='<option value="">Выбери игрока</option>'+entries.filter(([id])=>id!==uid&&alive[id]!==false).map(([id,p])=>`<option value="${id}">${escapeHtml(p.name||'Игрок')}</option>`).join("");
+ const votes=m.votes||{};$("mafiaVotes").textContent=Object.keys(votes).length?Object.entries(votes).map(([id,v])=>`${players[id]?.name||'Игрок'} → ${players[v]?.name||'—'}`).join(' · '):'Пока голосов нет.';
+ $("mafiaNextBtn").disabled=uid!==roomData.host;
+ if(!myMafiaRole){try{const snap=await get(ref(db,`rooms/${roomId}/privateRoles/${uid}`));if(snap.exists())myMafiaRole=snap.val();}catch(e){console.warn(e);}}
+}
+async function revealMafiaRole(){if(!myMafiaRole){toast('Роль ещё не загружена.');return;}$("myRole").textContent=({mafia:'🔪 МАФИЯ',doctor:'🩺 ДОКТОР',detective:'🕵️ КОМИССАР',citizen:'👤 МИРНЫЙ ЖИТЕЛЬ'})[myMafiaRole]||myMafiaRole;}
+async function mafiaAction(){const target=$("mafiaTarget").value;if(!target)return toast('Сначала выбери игрока.');if(!roomData?.mafia)return;await update(ref(db,`rooms/${roomId}/mafia/votes`),{[uid]:target});toast('Твой выбор отправлен.');}
+async function mafiaNext(){if(uid!==roomData?.host)return;const m=roomData.mafia||{},phase=m.phase||'night';if(phase==='night'){
+ const votes=m.votes||{},rolesSnap=await get(ref(db,`rooms/${roomId}/privateRoles`)),roles=rolesSnap.val()||{},alive={...(m.alive||{})};
+ const mafiaVotes=Object.entries(votes).filter(([id])=>roles[id]==='mafia').map(([,v])=>v);if(mafiaVotes.length){const counts={};mafiaVotes.forEach(v=>counts[v]=(counts[v]||0)+1);const victim=Object.keys(counts).sort((a,b)=>counts[b]-counts[a])[0];const doctorVote=Object.entries(votes).find(([id])=>roles[id]==='doctor')?.[1];if(victim!==doctorVote)alive[victim]=false;}
+ await update(roomRef(),{'mafia/phase':'day','mafia/alive':alive,'mafia/votes':{}});
+ }else{
+ const votes=m.votes||{},counts={};Object.values(votes).forEach(v=>counts[v]=(counts[v]||0)+1);const eliminated=Object.keys(counts).sort((a,b)=>counts[b]-counts[a])[0];const alive={...(m.alive||{})};if(eliminated)alive[eliminated]=false;
+ const rolesSnap=await get(ref(db,`rooms/${roomId}/privateRoles`)),roles=rolesSnap.val()||{};const aliveIds=Object.keys(alive).filter(id=>alive[id]!==false);const mafiaAlive=aliveIds.filter(id=>roles[id]==='mafia').length;const townAlive=aliveIds.length-mafiaAlive;
+ if(!mafiaAlive||mafiaAlive>=townAlive){await update(roomRef(),{status:'finished','mafia/alive':alive,'mafia/winner':mafiaAlive?'mafia':'town'});toast(mafiaAlive?'Победила мафия!':'Победили мирные!');}
+ else await update(roomRef(),{'mafia/phase':'night','mafia/alive':alive,'mafia/votes':{},round:(roomData.round||1)+1});
+ }
+}
+
 async function sendChat(){
  const msg=$("chatInput").value.trim();if(!msg||!roomId)return;
  $("chatInput").value="";
@@ -693,7 +740,7 @@ $("roomInput").addEventListener("input",e=>e.target.value=e.target.value.toUpper
 $("startBtn").onclick=startGame;$("leaveBtn").onclick=leaveRoom;$("leaveGameBtn").onclick=leaveRoom;
 $("backLobbyBtn").onclick=()=>showScreen("lobby");
 $("copyBtn").onclick=async()=>{try{await navigator.clipboard.writeText(roomId);toast("Код скопирован: "+roomId);}catch{toast("Код комнаты: "+roomId);}};
-$("nextBtn").onclick=nextQuestion;$("skipBtn").onclick=nextQuestion;$("sendChat").onclick=sendChat;
+$("revealRoleBtn").onclick=revealMafiaRole;$("mafiaActionBtn").onclick=mafiaAction;$("mafiaNextBtn").onclick=mafiaNext;$("nextBtn").onclick=nextQuestion;$("skipBtn").onclick=nextQuestion;$("sendChat").onclick=sendChat;
 $("chatInput").addEventListener("keydown",e=>{if(e.key==="Enter")sendChat();});
 </script>
 </body>
