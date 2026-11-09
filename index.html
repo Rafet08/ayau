@@ -17,6 +17,26 @@ button,input,select{font:inherit}button{min-height:50px;border-radius:15px;paddi
 .hero{border:1px solid #333;border-radius:26px;padding:27px 20px;text-align:center;background:linear-gradient(145deg,#202020,#101010);box-shadow:0 16px 45px #0008}
 .symbol{font-size:2.4rem;letter-spacing:6px;color:#fff}h1{font-size:clamp(2.5rem,12vw,4.4rem);letter-spacing:-2px;line-height:.95;margin:15px 0 10px;font-weight:950}h1 span{display:block;color:#929292}p{color:var(--muted);line-height:1.5;margin:10px 0 0}.card{margin-top:13px;padding:18px;border:1px solid #2f2f2f;border-radius:22px;background:linear-gradient(150deg,#191919,#111);box-shadow:0 12px 32px #0004}
 h2{font-size:1.08rem;margin:0 0 13px;letter-spacing:.1px}.field{display:flex;flex-direction:column;gap:8px;margin:13px 0;color:#c5c5c5;font-size:.9rem}input,select{width:100%;min-height:50px;background:#080808;color:white;border:1px solid #3b3b3b;border-radius:14px;padding:13px 14px;outline:none}input:focus,select:focus{border-color:#aaa}.grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.full{width:100%;margin-top:9px}.hidden{display:none!important}.status{font-size:.84rem;line-height:1.45;color:#c5c5c5;min-height:18px;margin-top:10px}.hint{font-size:.82rem;color:#a4a4a4;line-height:1.5}.players{display:flex;flex-wrap:wrap;gap:8px}.player{display:flex;align-items:center;gap:8px;padding:10px 12px;border:1px solid #333;border-radius:13px;background:#1a1a1a;font-size:.9rem}.dot{width:7px;height:7px;border-radius:50%;background:#eee}.room-hero{text-align:left;padding:20px}.room-code{font-size:2.5rem;font-weight:950;letter-spacing:5px;margin:8px 0}.room-sub{color:#aaa;font-size:.88rem}.question-card{padding:23px 20px;min-height:270px;display:flex;flex-direction:column;justify-content:center;text-align:center;background:linear-gradient(145deg,#202020,#111)}.kicker{font-size:.72rem;letter-spacing:2px;color:#aaa;text-transform:uppercase}.question{font-size:clamp(1.55rem,6vw,2.2rem);font-weight:850;line-height:1.2;letter-spacing:-.6px;margin:20px 0}.turn{font-size:.9rem;color:#bbb}.turn strong{color:#fff}.question-note{font-size:.84rem;color:#a4a4a4;line-height:1.45}.row{display:flex;align-items:center;gap:9px}.row input{flex:1;min-width:0}.tiny{font-size:.75rem;color:#999}.chat-list{max-height:220px;overflow:auto;overscroll-behavior:contain;padding-right:3px}.message{padding:9px 0;border-bottom:1px solid #292929;overflow-wrap:anywhere}.message:last-child{border-bottom:0}.message b{font-size:.85rem}.message div{margin-top:3px;line-height:1.4}.scoreline{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid #2b2b2b}.scoreline:last-child{border:0}.score{font-weight:850}.pill-row{display:flex;gap:7px;flex-wrap:wrap}.pill{font-size:.78rem;color:#bbb;border:1px solid #3b3b3b;padding:7px 10px;border-radius:99px}.footer{text-align:center;color:#777;font-size:.75rem;padding:22px 8px 4px}.mafia-scene{position:relative;overflow:hidden;border-color:#4a2929;background:radial-gradient(circle at 50% 0%,#55202055,transparent 55%),linear-gradient(145deg,#211313,#0c0c0c)}.mafia-scene:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(110deg,transparent 35%,#ffffff08 50%,transparent 65%);animation:shine 5s linear infinite}.mafia-icon{font-size:2.5rem;filter:drop-shadow(0 0 16px #d33)}.phase-night{animation:pulseNight 2.8s ease-in-out infinite}.phase-day{animation:riseDay .8s ease both}.mafia-event{padding:15px;border:1px solid #553434;background:#1a1111;border-radius:16px;text-align:center;color:#f3dede;line-height:1.5;animation:popIn .55s ease both}.mafia-player{transition:.25s}.mafia-player.dead{opacity:.35;filter:grayscale(1);text-decoration:line-through}.vote-progress{height:7px;border-radius:99px;background:#292020;overflow:hidden;margin-top:10px}.vote-progress span{display:block;height:100%;background:linear-gradient(90deg,#8c2525,#f3b0b0);transition:width .4s ease}@keyframes shine{0%{transform:translateX(-120%)}100%{transform:translateX(120%)}}@keyframes pulseNight{0%,100%{transform:scale(1);text-shadow:0 0 0 #b22}50%{transform:scale(1.035);text-shadow:0 0 25px #d22}}@keyframes riseDay{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}@keyframes popIn{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}.toast{position:fixed;z-index:10;left:50%;bottom:calc(18px + env(safe-area-inset-bottom));transform:translateX(-50%);width:max-content;max-width:calc(100% - 28px);padding:12px 16px;border:1px solid #555;border-radius:14px;background:#f4f4f4;color:#111;box-shadow:0 8px 30px #0009;font-size:.9rem}
+
+/* RAF GAME visual refresh */
+.hero{position:relative;overflow:hidden;border:1px solid #555;background:radial-gradient(ellipse at 50% 0%,#454545 0%,#191919 48%,#0d0d0d 100%);}
+.hero:before{content:"";display:block;position:absolute;inset:0;background:linear-gradient(120deg,#ffffff12,transparent 38%,#ffffff0a);pointer-events:none}
+.hero-art{height:150px;margin:-27px -20px 18px;position:relative;overflow:hidden;background:linear-gradient(0deg,#101010 0%,transparent 60%),url('https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1200&q=80') center 48%/cover;border-bottom:1px solid #555}
+.hero-art:after{content:"🌙　🎭　✨";position:absolute;inset:auto 0 12px;text-align:center;font-size:2rem;letter-spacing:5px;text-shadow:0 3px 18px #000}
+.brand{letter-spacing:3px}.brand span{color:#fff;text-shadow:0 0 14px #aaa}
+.card{border-color:#454545;box-shadow:0 12px 34px #0008, inset 0 1px #ffffff08}
+.question-card{position:relative;overflow:hidden;border:1px solid #777;border-radius:26px;background:radial-gradient(ellipse at top,#414141 0%,#1c1c1c 48%,#101010 100%);box-shadow:0 16px 45px #0009,inset 0 0 0 1px #ffffff0c}
+.question-card:before{content:"✦";position:absolute;top:12px;right:17px;color:#aaa;font-size:1.2rem;text-shadow:0 0 15px #fff8}
+.question{padding:0 5px;text-wrap:balance;text-shadow:0 3px 18px #0009}
+.kicker{display:inline-flex;align-self:center;gap:7px;border:1px solid #555;border-radius:99px;padding:7px 12px;background:#08080888;color:#eee;letter-spacing:1.5px}
+.question-note{max-width:390px;margin:0 auto}
+button{box-shadow:0 5px 15px #0005;transition:transform .16s ease,background .16s ease,border-color .16s ease}
+.primary{box-shadow:0 7px 22px #ffffff20}
+.field input,.field select{border-color:#555;background:linear-gradient(180deg,#151515,#080808)}
+.player{border-color:#555;background:linear-gradient(145deg,#242424,#141414);box-shadow:inset 0 1px #ffffff0a}
+.badge,.pill{box-shadow:inset 0 1px #ffffff0b}
+@media(max-width:390px){.hero-art{height:125px}.question-card{padding:22px 15px;min-height:250px}.question{font-size:1.48rem}}
+
 @media(min-width:520px){.wrap{padding-top:25px}.hero{padding:34px}.card{padding:22px}.question-card{min-height:300px}}
 </style>
 </head>
@@ -25,7 +45,7 @@ h2{font-size:1.08rem;margin:0 0 13px;letter-spacing:.1px}.field{display:flex;fle
 <header class="top"><div class="brand">RAF <span>GAME</span></div><div class="badge" id="connection">● OFFLINE</div></header>
 
 <section id="home">
- <div class="hero"><div class="symbol">🌙 🔪 ☀️</div><h1>RAF<span>MAFIA</span></h1><p>Онлайн-игра для твоей компании.<br>Выбирай мафию или вопросы и задания.</p></div>
+ <div class="hero"><div class="hero-art" role="img" aria-label="Ночная атмосфера игры"></div><div class="symbol">🎭 ✨ 🖤</div><h1>RAF<span>GAME</span></h1><p>Твоя компания — твои правила.<br>Играй в мафию, отвечай на вопросы и выполняй задания.</p></div>
  <div class="card">
   <h2>Начать игру</h2>
   <label class="field">Твоё имя<input id="name" maxlength="18" placeholder="Введи имя" autocomplete="nickname"></label>
@@ -8123,16 +8143,35 @@ async function initFirebase(){
  }catch(e){console.error(e);$("connection").textContent="● ERROR";setStatus("homeStatus","Firebase қосылмады / Не удалось подключиться к Firebase. Проверь Authentication и настройки базы.");return false;}
 }
 async function createRoom(){
+ const btn=$("createBtn");
  playerName=safeName($("name").value);roomLanguage=$("language").value;const selectedMode=$("mode").value;
- if(!playerName)return setStatus("homeStatus","Сначала введи имя.");
- if(!await initFirebase())return;
- setStatus("homeStatus","Создаём комнату…");
+ if(!playerName){setStatus("homeStatus","Сначала введи имя.");$("name").focus();return;}
+ btn.disabled=true;btn.textContent="Подключаемся…";setStatus("homeStatus","Подключаемся к игре и создаём комнату…");
  try{
-  let id=randomCode();for(let n=0;n<5&&(await get(ref(db,`rooms/${id}`))).exists();n++)id=randomCode();
+  const connected=await initFirebase();
+  if(!connected)throw new Error("Не удалось войти в Firebase. Проверь Anonymous Authentication.");
+  let id=null;
+  for(let n=0;n<8;n++){
+   const candidate=randomCode();
+   const existing=await get(ref(db,`rooms/${candidate}`));
+   if(!existing.exists()){id=candidate;break;}
+  }
+  if(!id)throw new Error("Не удалось подобрать свободный код. Попробуй ещё раз.");
   roomId=id;const now=Date.now();
-  await set(roomRef(),{createdAt:now,host:uid,status:"lobby",mode:selectedMode,language:roomLanguage,round:0,players:{[uid]:{name:playerName,score:0,joinedAt:now}}});
-  listenRoom();showScreen("lobby");renderRoom();setStatus("lobbyStatus","Комната готова. Отправь код друзьям.");
- }catch(e){console.error(e);setStatus("homeStatus","Не удалось создать комнату. Проверь правила Realtime Database.");}
+  const initialRoom={createdAt:now,host:uid,status:"lobby",mode:selectedMode,language:roomLanguage,round:0,players:{[uid]:{name:playerName,score:0,joinedAt:now}}};
+  await set(ref(db,`rooms/${id}`),initialRoom);
+  const verify=await get(ref(db,`rooms/${id}`));
+  if(!verify.exists())throw new Error("Firebase не подтвердил создание комнаты. Проверь правила Realtime Database.");
+  roomData=verify.val();listenRoom();showScreen("lobby");renderRoom();setStatus("lobbyStatus","Комната создана! Отправь друзьям код: "+id);setStatus("homeStatus","");
+ }catch(e){
+  console.error("RAF GAME createRoom error:",e);
+  roomId=null;
+  let message=e?.message||String(e);
+  if(e?.code==="PERMISSION_DENIED"||/permission_denied|permission denied/i.test(message))message="Firebase запретил запись (PERMISSION_DENIED). Открой Realtime Database → Rules и разреши запись для авторизованных пользователей.";
+  else if(/auth\/operation-not-allowed/i.test(message)||/OPERATION_NOT_ALLOWED/i.test(message))message="В Firebase включи Authentication → Sign-in method → Anonymous.";
+  else if(/network|offline|unavailable/i.test(message))message="Нет соединения с Firebase. Проверь интернет и databaseURL.";
+  setStatus("homeStatus","Не удалось создать комнату: "+message);
+ }finally{btn.disabled=false;btn.textContent="Создать комнату";}
 }
 async function joinRoom(){
  playerName=safeName($("name").value);const id=$("roomInput").value.trim().toUpperCase();
@@ -8147,7 +8186,7 @@ async function joinRoom(){
   if(!data.players?.[uid])await set(playerRef(),{name:playerName,score:0,joinedAt:Date.now()});
   else await update(playerRef(),{name:playerName});
   listenRoom();showScreen(data.status==="playing"?"game":"lobby");renderRoom();
- }catch(e){console.error(e);setStatus("homeStatus","Не удалось войти. Проверь правила Firebase.");}
+ }catch(e){console.error("RAF GAME joinRoom error:",e);setStatus("homeStatus","Не удалось войти: "+(e?.code||e?.message||"ошибка Firebase")+". Проверь правила Realtime Database.");}
 }
 function listenRoom(){
  if(roomId){if(roomUnsubscribe)roomUnsubscribe();if(chatUnsubscribe)chatUnsubscribe();}
@@ -8167,7 +8206,7 @@ function renderRoom(){
  $("playerCount").textContent=`${ps.length}/10`;
  $("players").innerHTML=ps.map(([id,p])=>`<div class="player"><span class="dot"></span>${escapeHtml(p.name||"Игрок")}${id===roomData.host?" · Ведущий":""}</div>`).join("");
  $("gamePlayers").innerHTML=$("players").innerHTML;
- $("startBtn").disabled=uid!==roomData.host||ps.length<(roomData.mode==="mafia"?5:2)||roomData.status==="playing";$("lobbyHint").textContent=roomData.mode==="mafia"?"Для мафии нужно минимум 5 игроков.":"Вопросы и задания можно проходить по телефону, отвечая голосом в Discord или в чате.");
+ $("startBtn").disabled=uid!==roomData.host||ps.length<(roomData.mode==="mafia"?5:2)||roomData.status==="playing";$("lobbyHint").textContent=roomData.mode==="mafia"?"Для мафии нужно минимум 5 игроков.":"Вопросы и задания можно проходить по телефону, отвечая голосом в Discord или в чате.";
  if(uid!==roomData.host)setStatus("lobbyStatus","Ожидаем ведущего. Можно отправить код ещё одной подруге.");
  if(roomData.mode==="mafia"){$("questionMode").classList.add("hidden");$("mafiaMode").classList.remove("hidden");renderMafia();}else{$("mafiaMode").classList.add("hidden");$("questionMode").classList.remove("hidden");renderGame();}
 }
@@ -8189,7 +8228,9 @@ function renderGame(){
  if(!roomData?.game)return;
  const g=roomData.game,players=roomData.players||{},turn=players[roomData.currentPlayer]?.name||"Игрок";
  $("roundLabel").textContent=`ВОПРОС ${roomData.round||1}`;
- $("categoryLabel").textContent=g.category||"RAF GAME";
+ const cat=g.category||"RAF GAME";
+ const catIcon=/люб|love|отнош/i.test(cat)?"💗":/действ|action|челлендж/i.test(cat)?"🔥":/друж|friend/i.test(cat)?"🫂":"✨";
+ $("categoryLabel").textContent=catIcon+"  "+cat;
  $("gamePrompt").textContent=g.prompt||"Следующий вопрос скоро появится…";
  $("turnLabel").innerHTML=`Отвечает: <strong>${escapeHtml(turn)}</strong>`;
  $("questionNote").textContent=roomLanguage==="kk"?"Дауыспен Discord-та немесе ойын чатында жауап беріңдер. Дұрыс не бұрыс жауап жоқ.":"Отвечайте голосом в Discord или в чате игры. Здесь нет правильных или неправильных ответов.";
